@@ -1,0 +1,13 @@
+{
+  "": {
+    "dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCLI.build/BLHeliCLI.d",
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCLI.build/BLHeliCLI.o",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCLI.build/primary.swiftdeps"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCLI/main.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCLI.build/main.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCLI.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCLI.build/main.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCLI.build/main.dia"
+  }
+}

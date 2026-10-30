@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSelfTest.build/primary.swiftdeps"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSelfTest/main.swift": {
+    "dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSelfTest.build/main.d",
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSelfTest.build/main.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSelfTest.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSelfTest.build/main.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSelfTest.build/main.dia"
+  }
+}

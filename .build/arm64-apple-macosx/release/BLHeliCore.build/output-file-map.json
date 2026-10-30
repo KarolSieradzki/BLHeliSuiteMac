@@ -1,0 +1,169 @@
+{
+  "": {
+    "dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/BLHeliCore.d",
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/BLHeliCore.o",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/primary.swiftdeps"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/ESC/BLHeliParams.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/BLHeliParams.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/BLHeliParams~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/BLHeliParams.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/BLHeliParams.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/ESC/BLHeliSettings.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/BLHeliSettings.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/BLHeliSettings~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/BLHeliSettings.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/BLHeliSettings.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/ESC/MCU.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/MCU.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/MCU~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/MCU.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/MCU.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/ESC/SettingsTranslator.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SettingsTranslator.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SettingsTranslator~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SettingsTranslator.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SettingsTranslator.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Firmware/FirmwareDatabase.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/FirmwareDatabase.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/FirmwareDatabase~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/FirmwareDatabase.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/FirmwareDatabase.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Firmware/MemoryImage.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/MemoryImage.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/MemoryImage~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/MemoryImage.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/MemoryImage.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/IO/PseudoTerminal.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/PseudoTerminal.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/PseudoTerminal~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/PseudoTerminal.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/PseudoTerminal.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/IO/SerialPort.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SerialPort.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SerialPort~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SerialPort.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SerialPort.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/AVRDude.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/AVRDude.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/AVRDude~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/AVRDude.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/AVRDude.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/ArduinoBoards.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/ArduinoBoards.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/ArduinoBoards~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/ArduinoBoards.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/ArduinoBoards.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/ESCProgrammer.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/ESCProgrammer.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/ESCProgrammer~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/ESCProgrammer.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/ESCProgrammer.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/FourWayProgrammer.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/FourWayProgrammer.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/FourWayProgrammer~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/FourWayProgrammer.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/FourWayProgrammer.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/ISPProgrammer.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/ISPProgrammer.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/ISPProgrammer~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/ISPProgrammer.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/ISPProgrammer.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/STK500v1.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/STK500v1.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/STK500v1~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/STK500v1.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/STK500v1.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/ToolstickProgrammer.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/ToolstickProgrammer.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/ToolstickProgrammer~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/ToolstickProgrammer.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/ToolstickProgrammer.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Operations/ESCOperations.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/ESCOperations.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/ESCOperations~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/ESCOperations.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/ESCOperations.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Operations/FirmwareSelection.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/FirmwareSelection.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/FirmwareSelection~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/FirmwareSelection.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/FirmwareSelection.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Operations/Session.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/Session.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/Session~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/Session.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/Session.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Operations/SetupFile.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SetupFile.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SetupFile~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SetupFile.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SetupFile.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Protocol/FourWay.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/FourWay.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/FourWay~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/FourWay.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/FourWay.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Protocol/MSP.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/MSP.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/MSP~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/MSP.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/MSP.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Simulation/SimulatedArduinoBootloader.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SimulatedArduinoBootloader.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SimulatedArduinoBootloader~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SimulatedArduinoBootloader.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SimulatedArduinoBootloader.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Simulation/SimulatedESC.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SimulatedESC.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SimulatedESC~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SimulatedESC.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SimulatedESC.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Simulation/SimulatedFlightController.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SimulatedFlightController.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SimulatedFlightController~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SimulatedFlightController.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SimulatedFlightController.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Simulation/SimulatedToolstick.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SimulatedToolstick.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SimulatedToolstick~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SimulatedToolstick.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/SimulatedToolstick.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Util/Bytes.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/Bytes.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/Bytes~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/Bytes.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/Bytes.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Util/Log.swift": {
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/Log.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/Log~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/Log.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/release/BLHeliCore.build/Log.dia"
+  }
+}

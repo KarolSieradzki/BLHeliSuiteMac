@@ -1,0 +1,138 @@
+{
+  "": {
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/primary.swiftdeps"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/AppModel+Extras.swift": {
+    "dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/AppModel+Extras.d",
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/AppModel+Extras.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/AppModel+Extras~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/AppModel+Extras.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/AppModel+Extras.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/AppModel.swift": {
+    "dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/AppModel.d",
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/AppModel.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/AppModel~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/AppModel.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/AppModel.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/AutoTest.swift": {
+    "dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/AutoTest.d",
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/AutoTest.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/AutoTest~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/AutoTest.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/AutoTest.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/BLHeliSuiteApp.swift": {
+    "dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/BLHeliSuiteApp.d",
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/BLHeliSuiteApp.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/BLHeliSuiteApp~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/BLHeliSuiteApp.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/BLHeliSuiteApp.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicAssets.swift": {
+    "dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicAssets.d",
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicAssets.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicAssets~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicAssets.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicAssets.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicFlashAssistant.swift": {
+    "dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicFlashAssistant.d",
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicFlashAssistant.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicFlashAssistant~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicFlashAssistant.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicFlashAssistant.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicKit.swift": {
+    "dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicKit.d",
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicKit.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicKit~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicKit.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicKit.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicMainView.swift": {
+    "dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicMainView.d",
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicMainView.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicMainView~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicMainView.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicMainView.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicPages.swift": {
+    "dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicPages.d",
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicPages.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicPages~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicPages.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicPages.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicSetupPage.swift": {
+    "dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicSetupPage.d",
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicSetupPage.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicSetupPage~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicSetupPage.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicSetupPage.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/ContentView.swift": {
+    "dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ContentView.d",
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ContentView.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ContentView~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ContentView.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ContentView.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/ESCOverviewView.swift": {
+    "dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ESCOverviewView.d",
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ESCOverviewView.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ESCOverviewView~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ESCOverviewView.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ESCOverviewView.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/ESCSetupView.swift": {
+    "dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ESCSetupView.d",
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ESCSetupView.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ESCSetupView~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ESCSetupView.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ESCSetupView.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/ExpertToolsView.swift": {
+    "dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ExpertToolsView.d",
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ExpertToolsView.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ExpertToolsView~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ExpertToolsView.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ExpertToolsView.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/FlashAssistantView.swift": {
+    "dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/FlashAssistantView.d",
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/FlashAssistantView.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/FlashAssistantView~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/FlashAssistantView.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/FlashAssistantView.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/InterfaceViews.swift": {
+    "dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/InterfaceViews.d",
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/InterfaceViews.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/InterfaceViews~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/InterfaceViews.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/InterfaceViews.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/LogView.swift": {
+    "dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/LogView.d",
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/LogView.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/LogView~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/LogView.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/LogView.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/RootView.swift": {
+    "dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/RootView.d",
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/RootView.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/RootView~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/RootView.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/RootView.dia"
+  },
+  "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/UITest.swift": {
+    "dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/UITest.d",
+    "object": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/UITest.swift.o",
+    "swiftmodule": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/UITest~partial.swiftmodule",
+    "swift-dependencies": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/UITest.swiftdeps",
+    "diagnostics": "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/UITest.dia"
+  }
+}

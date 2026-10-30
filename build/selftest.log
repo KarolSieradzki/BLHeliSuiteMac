@@ -1,0 +1,18 @@
+✓ crc (0.00s)
+✓ intel hex (0.00s)
+✓ firmware database (0.00s)
+    info: defaults differing from file content: Startup Power=30, PWM Frequency/Damped=18
+✓ settings of every built-in file (2.11s)
+✓ settings translation (0.51s)
+✓ FC passthrough: identify and read 4 ESCs (0.05s)
+✓ FC passthrough: write setup (0.06s)
+✓ FC passthrough: flash BLHeli_S 16.7 over 16.6 keeping settings (0.06s)
+✓ interrupted flash is recoverable (0.06s)
+✓ Atmel via FC: flash 14.9 over 14.8 (0.07s)
+✓ Arduino 4w-if in C2 mode: full flash of an empty chip (0.12s)
+✓ Arduino 4w-if bootloader mode: read + flash old BLHeli SiLabs (0.12s)
+✓ Toolstick C2: flash an erased EFM8BB21 incl. bootloader (0.00s)
+✓ Make interface: flash 4way-if firmware into an Arduino Nano (STK500v1) (0.38s)
+✓ FC armed: passthrough refused (0.00s)
+
+ALL 35674 CHECKS PASSED

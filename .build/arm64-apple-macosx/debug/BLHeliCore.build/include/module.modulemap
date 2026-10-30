@@ -1,0 +1,3 @@
+module BLHeliCore {
+    header "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/include/BLHeliCore-Swift.h"
+}

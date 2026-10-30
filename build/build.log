@@ -1,0 +1,8 @@
+[0/1] Planning build
+Building for production...
+[0/6] Write sources
+[1/6] Write swift-version--1AB21518FC5DEDBE.txt
+[3/4] Compiling BLHeliSuiteApp AppModel+Extras.swift
+[3/5] Write Objects.LinkFileList
+[4/5] Linking BLHeliSuite
+Build complete! (11.86s)

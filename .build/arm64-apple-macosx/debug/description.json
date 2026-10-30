@@ -1,0 +1,2127 @@
+{
+  "builtTestProducts" : [
+
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.BLHeliCLI-arm64-apple-macosx-debug.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCLI.build/sources",
+      "importPath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCLI/main.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/Modules/BLHeliCore.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCLI.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "BLHeliCLI",
+      "moduleOutputPath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/Modules/BLHeliCLI.swiftmodule",
+      "objects" : [
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCLI.build/main.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "BLHeliCLI_main",
+        "-swift-version",
+        "5",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "blhelisuitemac"
+      ],
+      "outputFileMapPath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCLI.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCLI.build/main.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/Modules/BLHeliCLI.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCLI/main.swift"
+      ],
+      "tempsPath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCLI.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.BLHeliCore-arm64-apple-macosx-debug.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/sources",
+      "importPath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/ESC/BLHeliParams.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/ESC/BLHeliSettings.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/ESC/MCU.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/ESC/SettingsTranslator.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Firmware/FirmwareDatabase.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Firmware/MemoryImage.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/IO/PseudoTerminal.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/IO/SerialPort.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/AVRDude.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/ArduinoBoards.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/ESCProgrammer.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/FourWayProgrammer.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/ISPProgrammer.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/STK500v1.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/ToolstickProgrammer.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Operations/ESCOperations.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Operations/FirmwareSelection.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Operations/Session.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Operations/SetupFile.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Protocol/FourWay.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Protocol/MSP.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Simulation/SimulatedArduinoBootloader.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Simulation/SimulatedESC.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Simulation/SimulatedFlightController.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Simulation/SimulatedToolstick.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Util/Bytes.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Util/Log.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "BLHeliCore",
+      "moduleOutputPath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/Modules/BLHeliCore.swiftmodule",
+      "objects" : [
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/BLHeliParams.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/BLHeliSettings.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/MCU.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SettingsTranslator.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/FirmwareDatabase.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/MemoryImage.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/PseudoTerminal.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SerialPort.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/AVRDude.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ArduinoBoards.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ESCProgrammer.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/FourWayProgrammer.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ISPProgrammer.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/STK500v1.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ToolstickProgrammer.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ESCOperations.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/FirmwareSelection.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/Session.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SetupFile.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/FourWay.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/MSP.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SimulatedArduinoBootloader.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SimulatedESC.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SimulatedFlightController.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SimulatedToolstick.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/Bytes.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/Log.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/include/BLHeliCore-Swift.h",
+        "-swift-version",
+        "5",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "blhelisuitemac"
+      ],
+      "outputFileMapPath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/BLHeliParams.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/BLHeliSettings.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/MCU.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SettingsTranslator.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/FirmwareDatabase.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/MemoryImage.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/PseudoTerminal.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SerialPort.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/AVRDude.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ArduinoBoards.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ESCProgrammer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/FourWayProgrammer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ISPProgrammer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/STK500v1.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ToolstickProgrammer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ESCOperations.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/FirmwareSelection.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/Session.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SetupFile.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/FourWay.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/MSP.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SimulatedArduinoBootloader.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SimulatedESC.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SimulatedFlightController.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SimulatedToolstick.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/Bytes.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/Log.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/Modules/BLHeliCore.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/ESC/BLHeliParams.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/ESC/BLHeliSettings.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/ESC/MCU.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/ESC/SettingsTranslator.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Firmware/FirmwareDatabase.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Firmware/MemoryImage.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/IO/PseudoTerminal.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/IO/SerialPort.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/AVRDude.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/ArduinoBoards.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/ESCProgrammer.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/FourWayProgrammer.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/ISPProgrammer.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/STK500v1.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/ToolstickProgrammer.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Operations/ESCOperations.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Operations/FirmwareSelection.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Operations/Session.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Operations/SetupFile.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Protocol/FourWay.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Protocol/MSP.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Simulation/SimulatedArduinoBootloader.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Simulation/SimulatedESC.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Simulation/SimulatedFlightController.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Simulation/SimulatedToolstick.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Util/Bytes.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Util/Log.swift"
+      ],
+      "tempsPath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.BLHeliSelfTest-arm64-apple-macosx-debug.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSelfTest.build/sources",
+      "importPath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSelfTest/main.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/Modules/BLHeliCore.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSelfTest.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "BLHeliSelfTest",
+      "moduleOutputPath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/Modules/BLHeliSelfTest.swiftmodule",
+      "objects" : [
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSelfTest.build/main.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "BLHeliSelfTest_main",
+        "-swift-version",
+        "5",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "blhelisuitemac"
+      ],
+      "outputFileMapPath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSelfTest.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSelfTest.build/main.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/Modules/BLHeliSelfTest.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSelfTest/main.swift"
+      ],
+      "tempsPath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSelfTest.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.BLHeliSim-arm64-apple-macosx-debug.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSim.build/sources",
+      "importPath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSim/main.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/Modules/BLHeliCore.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSim.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "BLHeliSim",
+      "moduleOutputPath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/Modules/BLHeliSim.swiftmodule",
+      "objects" : [
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSim.build/main.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "BLHeliSim_main",
+        "-swift-version",
+        "5",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "blhelisuitemac"
+      ],
+      "outputFileMapPath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSim.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSim.build/main.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/Modules/BLHeliSim.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSim/main.swift"
+      ],
+      "tempsPath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSim.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.BLHeliSuiteApp-arm64-apple-macosx-debug.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/sources",
+      "importPath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/AppModel+Extras.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/AppModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/AutoTest.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/BLHeliSuiteApp.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicAssets.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicFlashAssistant.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicKit.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicMainView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicPages.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicSetupPage.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/ContentView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/ESCOverviewView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/ESCSetupView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/ExpertToolsView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/FlashAssistantView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/InterfaceViews.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/LogView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/RootView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/UITest.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/Modules/BLHeliCore.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "BLHeliSuiteApp",
+      "moduleOutputPath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/Modules/BLHeliSuiteApp.swiftmodule",
+      "objects" : [
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/AppModel+Extras.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/AppModel.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/AutoTest.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/BLHeliSuiteApp.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicAssets.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicFlashAssistant.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicKit.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicMainView.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicPages.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicSetupPage.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ContentView.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ESCOverviewView.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ESCSetupView.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ExpertToolsView.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/FlashAssistantView.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/InterfaceViews.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/LogView.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/RootView.swift.o",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/UITest.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "BLHeliSuiteApp_main",
+        "-swift-version",
+        "5",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "blhelisuitemac"
+      ],
+      "outputFileMapPath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/AppModel+Extras.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/AppModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/AutoTest.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/BLHeliSuiteApp.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicAssets.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicFlashAssistant.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicKit.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicMainView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicPages.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicSetupPage.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ContentView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ESCOverviewView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ESCSetupView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ExpertToolsView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/FlashAssistantView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/InterfaceViews.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/LogView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/RootView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/UITest.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/Modules/BLHeliSuiteApp.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/AppModel+Extras.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/AppModel.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/AutoTest.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/BLHeliSuiteApp.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicAssets.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicFlashAssistant.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicKit.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicMainView.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicPages.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicSetupPage.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/ContentView.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/ESCOverviewView.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/ESCSetupView.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/ExpertToolsView.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/FlashAssistantView.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/InterfaceViews.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/LogView.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/RootView.swift",
+        "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/UITest.swift"
+      ],
+      "tempsPath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "BLHeliCLI" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "BLHeliCLI",
+      "-package-name",
+      "blhelisuitemac",
+      "-c",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCLI/main.swift",
+      "-I",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "BLHeliCLI_main",
+      "-swift-version",
+      "5",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "blhelisuitemac",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ],
+    "BLHeliCore" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "BLHeliCore",
+      "-package-name",
+      "blhelisuitemac",
+      "-c",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/ESC/BLHeliParams.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/ESC/BLHeliSettings.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/ESC/MCU.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/ESC/SettingsTranslator.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Firmware/FirmwareDatabase.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Firmware/MemoryImage.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/IO/PseudoTerminal.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/IO/SerialPort.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/AVRDude.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/ArduinoBoards.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/ESCProgrammer.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/FourWayProgrammer.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/ISPProgrammer.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/STK500v1.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/ToolstickProgrammer.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Operations/ESCOperations.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Operations/FirmwareSelection.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Operations/Session.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Operations/SetupFile.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Protocol/FourWay.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Protocol/MSP.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Simulation/SimulatedArduinoBootloader.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Simulation/SimulatedESC.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Simulation/SimulatedFlightController.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Simulation/SimulatedToolstick.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Util/Bytes.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Util/Log.swift",
+      "-I",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/include/BLHeliCore-Swift.h",
+      "-swift-version",
+      "5",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "blhelisuitemac",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ],
+    "BLHeliSelfTest" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "BLHeliSelfTest",
+      "-package-name",
+      "blhelisuitemac",
+      "-c",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSelfTest/main.swift",
+      "-I",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "BLHeliSelfTest_main",
+      "-swift-version",
+      "5",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "blhelisuitemac",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ],
+    "BLHeliSim" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "BLHeliSim",
+      "-package-name",
+      "blhelisuitemac",
+      "-c",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSim/main.swift",
+      "-I",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "BLHeliSim_main",
+      "-swift-version",
+      "5",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "blhelisuitemac",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ],
+    "BLHeliSuiteApp" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "BLHeliSuiteApp",
+      "-package-name",
+      "blhelisuitemac",
+      "-c",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/AppModel+Extras.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/AppModel.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/AutoTest.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/BLHeliSuiteApp.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicAssets.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicFlashAssistant.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicKit.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicMainView.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicPages.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicSetupPage.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/ContentView.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/ESCOverviewView.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/ESCSetupView.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/ExpertToolsView.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/FlashAssistantView.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/InterfaceViews.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/LogView.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/RootView.swift",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/UITest.swift",
+      "-I",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "BLHeliSuiteApp_main",
+      "-swift-version",
+      "5",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "blhelisuitemac",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "BLHeliCLI" : [
+      "BLHeliCore"
+    ],
+    "BLHeliCore" : [
+
+    ],
+    "BLHeliSelfTest" : [
+      "BLHeliCore"
+    ],
+    "BLHeliSim" : [
+      "BLHeliCore"
+    ],
+    "BLHeliSuiteApp" : [
+      "BLHeliCore"
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCLI.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCLI/main.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCLI.build/sources"
+    },
+    "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/ESC/BLHeliParams.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/ESC/BLHeliSettings.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/ESC/MCU.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/ESC/SettingsTranslator.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Firmware/FirmwareDatabase.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Firmware/MemoryImage.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/IO/PseudoTerminal.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/IO/SerialPort.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/AVRDude.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/ArduinoBoards.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/ESCProgrammer.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/FourWayProgrammer.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/ISPProgrammer.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/STK500v1.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Interface/ToolstickProgrammer.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Operations/ESCOperations.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Operations/FirmwareSelection.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Operations/Session.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Operations/SetupFile.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Protocol/FourWay.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Protocol/MSP.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Simulation/SimulatedArduinoBootloader.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Simulation/SimulatedESC.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Simulation/SimulatedFlightController.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Simulation/SimulatedToolstick.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Util/Bytes.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliCore/Util/Log.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/sources"
+    },
+    "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSelfTest.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSelfTest/main.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSelfTest.build/sources"
+    },
+    "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSim.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSim/main.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSim.build/sources"
+    },
+    "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuite-entitlement.plist" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<entitlement-plist>"
+        },
+        {
+          "kind" : "virtual",
+          "name" : "<com.apple.security.get-task-allow>"
+        }
+      ],
+      "outputFilePath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuite-entitlement.plist"
+    },
+    "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuite.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/AVRDude.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ArduinoBoards.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/BLHeliParams.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/BLHeliSettings.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/Bytes.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ESCOperations.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ESCProgrammer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/FirmwareDatabase.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/FirmwareSelection.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/FourWay.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/FourWayProgrammer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ISPProgrammer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/Log.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/MCU.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/MSP.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/MemoryImage.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/PseudoTerminal.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/STK500v1.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SerialPort.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/Session.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SettingsTranslator.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SetupFile.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SimulatedArduinoBootloader.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SimulatedESC.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SimulatedFlightController.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SimulatedToolstick.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ToolstickProgrammer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/AppModel+Extras.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/AppModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/AutoTest.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/BLHeliSuiteApp.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicAssets.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicFlashAssistant.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicKit.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicMainView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicPages.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ClassicSetupPage.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ContentView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ESCOverviewView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ESCSetupView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/ExpertToolsView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/FlashAssistantView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/InterfaceViews.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/LogView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/RootView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/UITest.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuite.product/Objects.LinkFileList"
+    },
+    "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/AppModel+Extras.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/AppModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/AutoTest.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/BLHeliSuiteApp.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicAssets.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicFlashAssistant.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicKit.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicMainView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicPages.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/Classic/ClassicSetupPage.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/ContentView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/ESCOverviewView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/ESCSetupView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/ExpertToolsView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/FlashAssistantView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/InterfaceViews.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/LogView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/RootView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/Sources/BLHeliSuiteApp/UITest.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSuiteApp.build/sources"
+    },
+    "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/blheli-cli-entitlement.plist" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<entitlement-plist>"
+        },
+        {
+          "kind" : "virtual",
+          "name" : "<com.apple.security.get-task-allow>"
+        }
+      ],
+      "outputFilePath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/blheli-cli-entitlement.plist"
+    },
+    "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/blheli-cli.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCLI.build/main.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/AVRDude.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ArduinoBoards.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/BLHeliParams.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/BLHeliSettings.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/Bytes.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ESCOperations.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ESCProgrammer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/FirmwareDatabase.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/FirmwareSelection.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/FourWay.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/FourWayProgrammer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ISPProgrammer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/Log.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/MCU.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/MSP.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/MemoryImage.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/PseudoTerminal.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/STK500v1.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SerialPort.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/Session.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SettingsTranslator.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SetupFile.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SimulatedArduinoBootloader.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SimulatedESC.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SimulatedFlightController.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SimulatedToolstick.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ToolstickProgrammer.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/blheli-cli.product/Objects.LinkFileList"
+    },
+    "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/blheli-selftest-entitlement.plist" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<entitlement-plist>"
+        },
+        {
+          "kind" : "virtual",
+          "name" : "<com.apple.security.get-task-allow>"
+        }
+      ],
+      "outputFilePath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/blheli-selftest-entitlement.plist"
+    },
+    "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/blheli-selftest.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/AVRDude.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ArduinoBoards.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/BLHeliParams.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/BLHeliSettings.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/Bytes.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ESCOperations.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ESCProgrammer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/FirmwareDatabase.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/FirmwareSelection.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/FourWay.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/FourWayProgrammer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ISPProgrammer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/Log.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/MCU.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/MSP.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/MemoryImage.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/PseudoTerminal.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/STK500v1.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SerialPort.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/Session.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SettingsTranslator.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SetupFile.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SimulatedArduinoBootloader.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SimulatedESC.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SimulatedFlightController.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SimulatedToolstick.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ToolstickProgrammer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSelfTest.build/main.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/blheli-selftest.product/Objects.LinkFileList"
+    },
+    "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/blheli-sim-entitlement.plist" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<entitlement-plist>"
+        },
+        {
+          "kind" : "virtual",
+          "name" : "<com.apple.security.get-task-allow>"
+        }
+      ],
+      "outputFilePath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/blheli-sim-entitlement.plist"
+    },
+    "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/blheli-sim.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/AVRDude.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ArduinoBoards.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/BLHeliParams.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/BLHeliSettings.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/Bytes.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ESCOperations.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ESCProgrammer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/FirmwareDatabase.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/FirmwareSelection.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/FourWay.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/FourWayProgrammer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ISPProgrammer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/Log.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/MCU.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/MSP.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/MemoryImage.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/PseudoTerminal.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/STK500v1.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SerialPort.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/Session.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SettingsTranslator.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SetupFile.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SimulatedArduinoBootloader.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SimulatedESC.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SimulatedFlightController.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/SimulatedToolstick.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliCore.build/ToolstickProgrammer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/BLHeliSim.build/main.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/blheli-sim.product/Objects.LinkFileList"
+    },
+    "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/karol/Documents/blheli_suite_for_mac/BLHeliSuiteMac/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+    }
+  }
+}
