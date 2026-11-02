@@ -114,10 +114,11 @@ func saveScreenshot(of f: TForm, name: String, text: String? = nil) {
     @objc var OKButton: TButton!
 
     @objc func FormCreate(_ sender: TObject) {
-        caption = "About BLHeliSuite"
+        // TAboutBox.FormCreate (0x657BC0): caption RES"Info about...", texts of the version resource
+        caption = NL("Info about...")
         lblProductName.caption = "BLHeliSuite"
         lblVersion.caption = TfrmBLHeliSuiteMain.version
-        lblCopyright.caption = "Copyright (c) 4712 – macOS port"
+        lblCopyright.caption = "Copyright © 2016 by 4712"
         if let img = NSApp.applicationIconImage { ProgramIcon.picture = img; ProgramIcon.stretch = true; ProgramIcon.proportional = true }
         if let rtf = Resources.data("RCData/ABOUTBLHELISUITE"),
            let s = NSAttributedString(rtf: Data(rtf), documentAttributes: nil) {

@@ -121,6 +121,15 @@ import BLHeliCore
     @objc var lblLastAddress: TLabel!
     var pageSize = 0x200
 
+    /// FormCreate (0x65ADC4).
+    @objc func FormCreate(_ sender: TObject) {
+        btnOK.caption = NL("OK")
+        btnAbort.caption = NL("Abort")
+        lblFirstPage.caption = NL("First Page")
+        lblLastPage.caption = NL("Last Page")
+        caption = NL("Erase flash pages")
+    }
+
     func prepare(pageSize ps: Int, pages: Int) {
         pageSize = ps
         speFirstPage.minValue = 0
@@ -170,4 +179,7 @@ import BLHeliCore
     }
 
     @objc func Button1Click(_ sender: TObject) { saveScreenshot(of: self, name: "CompareResults") }
+
+    /// btnOKClick (0x658E30): Close.
+    @objc func btnOKClick(_ sender: TObject) { close() }
 }

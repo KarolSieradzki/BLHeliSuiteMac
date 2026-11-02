@@ -167,11 +167,53 @@ final class TBLHeli {
         return s
     }
 
-    /// Loads a setup block read from an ESC (FUN_005A6E64); throws the original error texts.
-    func load(raw: [UInt8], signature: Int = 0) throws {
-        var s = BLHeliSettings(raw: raw)
+    struct LoadError: Error, LocalizedError {
+        let message: String
+        var errorDescription: String? { message }
+    }
+
+    /// Checks of TBLHeli.Load (FUN_005A6E64) with the messages of BLHeliSuite; "BLHeli revision check disabled"
+    /// (Options) accepts newer firmware and layouts that are not in the list.
+    static func checkLoad(_ s: BLHeliSettings, rawCount: Int) throws {
+        guard rawCount >= 0x70 else { throw LoadError(message: DFormat(NL("Setup section size too small: %d"), [rawCount])) }
+        guard s.mcuType != nil, s.mcuDatabaseCode != nil else {
+            throw LoadError(message: DFormat(NL("MCU ID error!\\n\"%s\"\\n\\nUnflashed, erased or invald ESC type?"), [s.mcuString]))
+        }
+        let check = !Globals.revisionCheckDisabled
+        let main = Int(s.raw[0]), lr = Int(s.raw[2])
+        let found = DFormat(NL("Found Firmware revision: %s / EEProm layout revision: %d."), [s.revisionString, lr])
+        if !s.isBLHeliS {
+            if main < 0x0F && (lr < 7 || lr > 0x15) {
+                if lr < 2 || lr > 0x1E {
+                    throw LoadError(message: DFormat(NL("Firmware EEProm layout error!\\n(Found Rev.%d)\\nUnflashed, erased or invald ESC type?"), [lr]))
+                }
+                if lr < 7 {
+                    throw LoadError(message: DFormat(NL("Firmware revision <2.0 is not supported!\\nFound EEProm layout rev %d"), [lr]))
+                }
+                if check {
+                    throw LoadError(message: DFormat(NL("This application supports EEProm layouts up to revision %d."), [0x15]) + "\n\n" + found +
+                                    "\n\n" + DFormat(NL("Please get the latest revision of BLHeliSuite or reflash the ESC with rev %d.%d ..."), [14, 9]))
+                }
+            }
+        } else if main > 0x10 && check {
+            throw LoadError(message: DFormat(NL("This application supports firmware up to revision %d.%d."), [16, 7]) + "\n" + found +
+                            "\n\n" + DFormat(NL("Please get the latest revision of BLHeliSuite or reflash the ESC with rev %d.%d ..."), [16, 7]))
+        }
+        if s.mode == .invalid {
+            throw LoadError(message: NL(String(format: "Unsupported or invald ESC Mode: 0x%.2x 0x%.2x", s.raw[0x0D], s.raw[0x0E])))
+        }
+        let fam: MCUFamily = s.family == .atmel ? .atmel : .silabs
+        if check, let db = try? FirmwareDatabase.shared(), db.layoutIndex(family: fam, name: s.layoutName) == nil {
+            throw LoadError(message: DFormat(NL("ESC not in list: %s"), [s.layoutName]))
+        }
+    }
+
+    /// Loads a setup block (FUN_005A6E64). `checks`: the checks and messages of BLHeliSuite for a setup read from an
+    /// ESC; otherwise only the basic plausibility test (setups of hex files while flashing).
+    func load(raw: [UInt8], signature: Int = 0, checks: Bool = false) throws {
+        var s = BLHeliSettings(raw: Array(raw.prefix(max(BLHeliSettings.size, raw.count))))
         s.normalizeOldHeader()
-        try s.validate()
+        if checks { try TBLHeli.checkLoad(s, rawCount: raw.count) } else { try s.validate() }
         settings = s
         isS = s.isBLHeliS
         brand = s.family == .atmel ? 2 : (s.family == .silabs ? 1 : Brand.current)

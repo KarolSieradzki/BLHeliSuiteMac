@@ -139,6 +139,40 @@ extension TBLHeli {
 // MARK: - menu "ESC setup" → setup files (0x660C74, 0x6602F8, 0x66095C, 0x660388)
 
 extension TfrmBLHeliSuiteMain {
+    /// WM_DROPFILES (dynamic method 0x65DD30): a single .ini file imports settings, a .hex file updates the
+    /// firmware of the master ESC.
+    func dropFiles(_ urls: [URL]) {
+        guard urls.count == 1 else {
+            setStatus(NL("Drag and drop is only allowed for a single file."))
+            MsgDlg.error(statusText)
+            return
+        }
+        let url = urls[0]
+        guard FileManager.default.fileExists(atPath: url.path) else { return }
+        switch url.pathExtension.uppercased() {
+        case "INI":
+            guard MsgDlg.show(DFormat(NL("Import settings from file \"%s\"?"), [url.path]), .mtConfirmation, [.mbYes, .mbNo]) == mrYes else { return }
+            var found = false
+            if workspace.loadFromIni(url, escNo: 0, db, found: &found) {
+                if !escConnected { workspace.assign(to: current) }
+                showESCData()
+            }
+        case "HEX":
+            guard MsgDlg.show(DFormat(NL("Update Firmware with file \"%s\"?"), [url.path]), .mtConfirmation, [.mbYes, .mbNo]) == mrYes else { return }
+            guard connectForExpertTool() else { return }                          // FUN_00663EC8
+            var mem: [UInt8]?
+            if let m = readSetupMem() {                                           // FUN_006796A0
+                mem = m
+                try? workspace.load(raw: m)
+                showESCData()
+            }
+            do { _ = try flashFile(mem: mem, url: url, blheli: false) } catch {}  // FUN_0066546C
+            updateESCButtons()
+        default:
+            break
+        }
+    }
+
     @objc func actSaveSetupToIniFileExecute(_ sender: TObject) {
         guard workspace.isValid, let url = workspace.iniSaveURL(multi: false) else { return }
         if workspace.saveToIni(url, escNo: 0, db) {

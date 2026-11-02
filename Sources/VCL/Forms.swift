@@ -102,6 +102,17 @@ public final class FormContainerView: NSView {
         Draw.fill(bounds, Colors.ns(clBtnFace))
         if menuBar != nil { Draw.hline(0, bounds.width, TMenuBar.height - 1, Colors.hex(0xF0F0F0)) }
     }
+
+    // DragAcceptFiles / WM_DROPFILES
+    public override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation { form?.onDropFiles == nil ? [] : .copy }
+
+    public override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
+        guard let h = form?.onDropFiles,
+              let urls = sender.draggingPasteboard.readObjects(forClasses: [NSURL.self],
+                                                               options: [.urlReadingFileURLsOnly: true]) as? [URL] else { return false }
+        DispatchQueue.main.async { h(urls) }   // after the drag session: the handler may show modal dialogs
+        return true
+    }
 }
 
 final class VCLWindow: NSWindow {
@@ -165,6 +176,12 @@ open class TForm: TControl, NSWindowDelegate {
     public var onDestroy: TNotifyEvent?
     public var onClose: ((TObject, TCloseArgs) -> Void)?
     public var onCloseQuery: ((TObject, TBoolArgs) -> Void)?
+    /// DragAcceptFiles(Handle, True) + WM_DROPFILES: files dropped on the window.
+    public var onDropFiles: (([URL]) -> Void)? {
+        didSet {
+            if onDropFiles == nil { container.unregisterDraggedTypes() } else { container.registerForDraggedTypes([.fileURL]) }
+        }
+    }
     public var components: [String: AnyObject] = [:]
     public var actionLists: [TActionList] = []
     public var appEvents: [TDummyComponent] = []

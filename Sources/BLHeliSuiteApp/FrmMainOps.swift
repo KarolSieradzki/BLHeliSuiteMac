@@ -317,7 +317,7 @@ extension TfrmBLHeliSuiteMain {
             ok = s.raw.enumerated().contains { $0.element != 0xFF && Int($0.element) != $0.offset }
             if ok {
                 do {
-                    try current.load(raw: s.raw, signature: Int(dev.signature))
+                    try current.load(raw: s.raw, signature: Int(dev.signature), checks: true)
                     if !current.isFlashFailed {
                         compareWithMaster()
                         if !slots[escNo].modeDiff { slots[escNo].selected = true }

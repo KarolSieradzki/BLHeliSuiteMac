@@ -85,6 +85,7 @@ final class ESCSlot {
     required init?(coder: NSCoder) { fatalError() }
 
     @objc func FormCreate(_ sender: TObject) {
+        onDropFiles = { [weak self] urls in self?.dropFiles(urls) }   // DragAcceptFiles(Handle, True)
         Application.shared.title = "BLHeliSuite " + TfrmBLHeliSuiteMain.version
         formCaption = Application.shared.title
         for i in 1...8 {

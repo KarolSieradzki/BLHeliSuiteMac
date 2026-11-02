@@ -102,6 +102,9 @@ enum DevTools {
             var found = false
             if m.workspace.loadFromIni(URL(fileURLWithPath: kv[1]), escNo: 0, m.db, found: &found) { m.showESCData() }
             FileHandle.standardError.write("[script] loadini found=\(found)\n".data(using: .utf8)!)
+        case "drop":
+            // drop=<file> – like dropping the file on the main window (WM_DROPFILES)
+            m.onDropFiles?([URL(fileURLWithPath: kv[1])])
         case "quit":
             exit(0)
         default: break

@@ -490,6 +490,21 @@ import BLHeliCore
 
     // MARK: - changes (FUN_006515E0)
 
+    /// FUN_00651BD4: PPM Min/Max of the setup must form a valid pair, otherwise both are set to their defaults
+    /// and the change is not applied.
+    func checkPPMRange() -> Bool {
+        let gap = bl.isS ? 0x23 : 0x82
+        let mn = bl.value(.ppmMinThrottle), mx = bl.value(.ppmMaxThrottle)
+        guard mx <= mn || mx < gap || mn > 0xFF - gap else { return true }
+        MsgDlg.show(NL("Invalid PPM Min/Max Throttle parameter value combination was found\\nParameters will be set to default."),
+                    .mtWarning, [.mbOK])
+        if let d = bl.defaultValue(.ppmMinThrottle, db) { bl.setValue(.ppmMinThrottle, d) }
+        if let d = bl.defaultValue(.ppmMaxThrottle, db) { bl.setValue(.ppmMaxThrottle, d) }
+        showValue(0x1A)
+        showValue(0x1B)
+        return false
+    }
+
     func paramChanged(_ s: TControl) {
         guard Brand.current != 0, !updating else { return }
         updating = true
@@ -503,8 +518,10 @@ import BLHeliCore
         let gap = bl.isS ? 0x23 : 0x82
         switch raw {
         case 0x1A:
+            guard checkPPMRange() else { return }
             if let mx = (params[0x1B]?.scb as? TScrollBar)?.position, mx - v < gap, v <= mx { v = mx - gap }
         case 0x1B:
+            guard checkPPMRange() else { return }
             if let mn = (params[0x1A]?.scb as? TScrollBar)?.position, v - mn < gap { v = mn + gap }
         case 0x22:
             if let mn = (params[0x1A]?.scb as? TScrollBar)?.position, v - mn < 1 { v = mn + 1 }
