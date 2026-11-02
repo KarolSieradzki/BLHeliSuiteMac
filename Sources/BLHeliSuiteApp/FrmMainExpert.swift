@@ -369,36 +369,89 @@ extension TfrmBLHeliSuiteMain {
         return ok
     }
 
-    /// actFlashAnyFileExecute (0x67B48C): any hex/eep file, no BLHeli checks.
+    /// actFlashAnyFileExecute (0x67B48C): flashes any hex/bin (flash) or eep (EEPROM) file – neither the target nor
+    /// the file content is checked.
     @objc func actFlashAnyFileExecute(_ sender: TObject) {
-        guard let url = OpenDialog.execute(filter: "Hex file (*.hex;*.eep)|*.hex;*.eep", initialDir: AppFolders.hexFolder) else { return }
-        AppFolders.hexFolder = url.deletingLastPathComponent()
-        guard let img = try? MemoryImage.loadIntelHex(url: url) else { MsgDlg.error(NL("Invalid Package")); return }
-        guard connectForExpertTool(), let p = programmer, let dev = targetDevice else { return }
-        let eeprom = url.pathExtension.lowercased() == "eep"
-        guard MsgDlg.show(DFormat(NL("Flash %s with \"%s\"?"), [escText, url.lastPathComponent]), .mtConfirmation, [.mbYes, .mbNo]) == mrYes else { return }
-        let n = (img.highestAddress ?? -1) + 1
-        let info = TfrmInfo.showInfo(NL("Flashing ") + escText + " ...", cancel: false)
-        Screen.busy = true
-        defer { Screen.busy = false; info.hideInfo() }
-        do {
-            if eeprom {
-                try p.writeEEPROM(address: 0, data: img.read(0, n), progress: nil)
-            } else {
-                let ps = dev.pageSize
-                var a = 0
-                while a < n {
-                    let d = img.read(a, min(ps, n - a))
-                    if dev.family == .silabs { try p.erasePage(address: a) }
-                    if d.contains(where: { $0 != 0xFF }) { try p.writeFlash(address: a, data: d, progress: nil) }
-                    a += ps
-                    info.setProgress(a, n)
-                }
-            }
-            setStatus(escText + NL(" flashed successfully"))
-        } catch {
-            MsgDlg.error(error.localizedDescription)
+        TfrmLogForm.addNavy2(NL("Expert: Flash any file"))
+        TfrmLogForm.indent(1)
+        defer { TfrmLogForm.indent(-1) }
+        clearSlotStatus()                                                   // FUN_006754AC
+        guard connectInterface(true) else { return }                        // FUN_00664538, else Abort
+        selectESC(masterESC, load: true)
+        let connected = connectESC(true)
+        if !connected && checkESC().ok { return }                           // FUN_006798B8 → Abort
+        var targetName = "Unknown Target"
+        var mem: [UInt8]?
+        if connected, let m = readSetupMem() {                              // FUN_006796A0
+            mem = m
+            try? workspace.load(raw: m)
+            showESCData()
+            targetName = workspace.shortInfo()                              // FUN_005A5814
         }
+        classifyRead(locked: false, mem: &mem)                              // FUN_0065F034
+        let filter = Brand.current == 1 ? "Hex or Bin file (*.hex,*.bin)|*.hex;*.bin;"
+                                         : "Hex or Bin file (*.hex, *.eep or *.bin)|*.hex;*.eep;*.bin"
+        guard let url = OpenDialog.execute(filter: filter, initialDir: AppFolders.folder(0)) else { return }
+        AppFolders.setFolder(0, url.deletingLastPathComponent())
+        let ext = "." + url.pathExtension.uppercased()
+        var data: [UInt8] = []
+        if ext == ".HEX" || ext == ".EEP" {
+            guard let img = try? MemoryImage.loadIntelHex(url: url), let hi = img.highestAddress else { return }   // FUN_005564C4, else raise
+            data = img.read(0, hi + 1)
+        } else if ext == ".BIN" {
+            guard let d = try? Data(contentsOf: url), !d.isEmpty else { return }                                    // FUN_005563E8
+            data = [UInt8](d)
+        }
+        let memName = ext == ".HEX" || ext == ".BIN" ? "Flash Memory" : "EEProm"
+        let dlg = TfrmConfirmFlash(resource: "TFRMCONFIRMFLASH", owner: self)
+        defer { dlg.release() }
+        dlg.brand = Brand.current
+        dlg.severeText = NL("BE WARNED!!!") + "\r\n" + NL("Neither the target nor the file content will be checked by this software !")
+        dlg.infoText = NL("Do you realy want to overwrite the") + "\r\n" + memName + " of \"" + targetName + "\" with"
+        dlg.warningText = ""
+        if Brand.current == 1 {
+            dlg.flashToText = url.path
+        } else {
+            let simonK = data.count >= 9 && (0...(data.count - 9)).contains { data[$0..<($0 + 9)].elementsEqual(Array("sim-/tgy/".utf8)) }
+            dlg.flashToText = url.lastPathComponent + (simonK ? " (simonK with Bootloader)" : "")
+        }
+        dlg.flashTo2Text = "(" + url.path + ")"
+        let done = "Written \r\n" + url.path + "\r\n" + " to device successfully."
+        if ext == ".EEP" {
+            guard dlg.execute() == 1 else { return }                        // else Abort
+            if writeTargetEEprom(data, 0) == true { MsgDlg.show(done, .mtInformation, [.mbOK]) }
+            return
+        }
+        guard ext == ".HEX" || ext == ".BIN", dlg.execute() == 1 else { return }
+        if flashImage(data) == true { MsgDlg.show(done, .mtInformation, [.mbOK]) }
+    }
+
+    /// FUN_0067AF08 (flash only): size check, flashing with "Retry?" on failure.
+    func flashImage(_ data: [UInt8]) -> Bool? {
+        guard let dev = targetDevice, let p = programmer else { return false }
+        let avail = dev.userFlashSize                                       // FUN_0066F418
+        if data.count > avail {
+            MsgDlg.error(DFormat(NL("The size of the Hex you picked exceeds the available target space\\nAvailable space: %d Bytes.\\nRequired space: %d Bytes."),
+                                 [avail, data.count]))
+            return nil
+        }
+        var ok = false
+        while true {
+            let ops = ESCOperations(programmer: p)
+            ops.verify = true
+            let info = TfrmInfo.showInfo(NL("Flashing ") + escText + " ...", cancel: false)
+            ops.onProgress = { [weak info] pr in
+                info?.setProgress(Int(pr.fraction * 1000), 1000)
+                Application.shared.processMessages()
+            }
+            Led_Write.isOn = true
+            ok = (try? ops.flash(FlashPlan(flash: MemoryImage(contiguous: data), title: ""), device: dev, currentSettings: nil)) != nil
+            Led_Write.isOn = false
+            info.hideInfo()
+            if ok || MsgDlg.show(NL("Write Setup Section Failed!\\nRetry?"), .mtError, [.mbAbort, .mbRetry]) != mrRetry { break }
+        }
+        if !ok { TfrmLogForm.add(escText + ": \"" + "ESC Flash failed" + "\"", color: 0xFF) }   // FUN_006784E0
+        return ok
     }
 
     // MARK: - file viewers

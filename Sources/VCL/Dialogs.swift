@@ -192,7 +192,11 @@ public enum OpenDialog {
     }
 
     /// filter: Delphi filter string "Text|*.ext;*.ext2|…"
+    /// Test hook (BLHELI_SCRIPT "file="): the next Execute returns this file without showing the panel.
+    public static var scriptedFile: URL?
+
     public static func execute(title: String? = nil, filter: String = "", initialDir: URL? = nil) -> URL? {
+        if let f = scriptedFile { scriptedFile = nil; return f }
         let p = NSOpenPanel()
         p.canChooseDirectories = false
         p.allowsMultipleSelection = false
@@ -256,6 +260,7 @@ public enum OpenDialog {
 
 public enum SaveDialog {
     public static func execute(title: String? = nil, fileName: String = "", filter: String = "", initialDir: URL? = nil) -> URL? {
+        if let f = OpenDialog.scriptedFile { OpenDialog.scriptedFile = nil; return f }
         let p = NSSavePanel()
         if let t = title { p.title = t; p.message = t }
         p.nameFieldStringValue = fileName
