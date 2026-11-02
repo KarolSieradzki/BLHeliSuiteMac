@@ -49,8 +49,9 @@ enum DevTools {
             // select=<component>:<index> in the topmost form (list/combo boxes)
             let a = kv[1].split(separator: ":").map(String.init)
             let f = ((NSApp.modalWindow ?? NSApp.keyWindow)?.delegate as? TForm) ?? m
-            if let lb: TListBox = f.component(a[0]) { lb.itemIndex = Int(a[1]) ?? 0 }
-            else if let cb: TComboBox = f.component(a[0]) { cb.itemIndex = Int(a[1]) ?? 0; cb.onChange?(cb) }
+            let c: TControl? = f.component(a[0]) ?? DevTools.find(a[0], in: f)
+            if let lb = c as? TListBox { lb.itemIndex = Int(a[1]) ?? 0 }
+            else if let cb = c as? TComboBox { cb.itemIndex = Int(a[1]) ?? 0; cb.onChange?(cb) }
         case "click":
             let f = ((NSApp.modalWindow ?? NSApp.keyWindow)?.delegate as? TForm) ?? m
             if let c: TControl = f.component(kv[1]) ?? DevTools.find(kv[1], in: f) { c.click() }
@@ -80,6 +81,16 @@ enum DevTools {
             }
             if let h = FileHandle(forWritingAtPath: kv[1]) ?? { FileManager.default.createFile(atPath: kv[1], contents: nil); return FileHandle(forWritingAtPath: kv[1]) }() {
                 h.seekToEndOfFile(); h.write(out.data(using: .utf8)!); h.closeFile()
+            }
+        case "fuses":
+            // fuses=<signature hex>[:critical] – fuse editor without programmer, factory defaults of the device
+            let a = kv[1].split(separator: ":").map(String.init)
+            let sig = Int(a[0], radix: 16) ?? 0x1E9307
+            let model = TAVRFuses()
+            try? model.setDevice(sig)
+            if let v = TfrmFuseEditor.edit(signature: sig, chip: model.value, fuses: model.value, deviceChangeable: true,
+                                           critical: a.count > 1) {
+                FileHandle.standardError.write(String(format: "[script] fuses result 0x%08X\n", v).data(using: .utf8)!)
             }
         case "quit":
             exit(0)

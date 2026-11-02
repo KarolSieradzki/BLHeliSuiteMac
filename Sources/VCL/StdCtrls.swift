@@ -137,10 +137,29 @@ open class TPanel: TControl {
     public var alignment: TTextAlignment = .center
     public var verticalLayout: TTextLayout = .center
     public var showCaption = true
+    /// AutoSize: the panel takes the height of its vertically stacked children (alTop / alBottom / alNone),
+    /// e.g. the feature panels of the fuse editor whose unused check boxes have Height = 0.
+    public var autoSize = false
+    private var autoSizing = false
 
     public required init(frame: NSRect) {
         super.init(frame: frame)
         color = clBtnFace
+    }
+
+    open override func realign() {
+        super.realign()
+        guard autoSize, !autoSizing else { return }
+        let kids = controls.filter { !$0.isHidden }
+        guard !kids.isEmpty, !kids.contains(where: { [.alLeft, .alRight, .alClient].contains($0.align) }) else { return }
+        var bottom: CGFloat = 0
+        for c in kids { bottom = max(bottom, c.frame.maxY + (c.alignWithMargins ? c.margins.bottom : 0)) }
+        let h = Int((bottom + bevelInset).rounded())
+        if h != height {
+            autoSizing = true
+            height = h
+            autoSizing = false
+        }
     }
 
     public required init?(coder: NSCoder) { fatalError() }
@@ -192,7 +211,8 @@ open class TPanel: TControl {
         case "Alignment": alignment = parseAlignment(value)
         case "VerticalAlignment": break
         case "ShowCaption": showCaption = value.boolValue ?? true
-        case "BevelEdges", "BevelKind", "FullRepaint", "Locked", "AutoSize", "Layout", "MultiLine", "HotTrack",
+        case "AutoSize": autoSize = value.boolValue ?? false
+        case "BevelEdges", "BevelKind", "FullRepaint", "Locked", "Layout", "MultiLine", "HotTrack",
              "Sizeable", "Movable", "ArrangeSettings.AutoArrange", "Transparent":
             break
         default: return super.setDFMProperty(name, value, loader)

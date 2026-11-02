@@ -33,6 +33,8 @@ public struct FlashPlan {
     /// ISP only: bootloader merged into the flash image and fuses written with the flash.
     public var ispBootloader: MemoryImage?
     public var ispFuses: AVRFuses?
+    /// Lock byte written after flashing (nil: unchanged), e.g. BLB11 programmed = boot section locked.
+    public var ispLock: UInt8?
 
     public init(flash: MemoryImage, eeprom: MemoryImage? = nil, settings: BLHeliSettings? = nil, title: String) {
         self.flash = flash
@@ -316,7 +318,7 @@ public final class ESCOperations {
         let eepData = eep.isEmpty ? nil : eep.read(0, device.eepromSize)
         report("Flashing over ISP…", 0.1)
         try isp.flashComplete(flash: image, eeprom: eepData, fuses: plan.ispFuses.map { ($0.low, $0.high, $0.ext) },
-                              verify: verify) { out in
+                              lock: plan.ispLock, verify: verify) { out in
             if out.contains("Writing") { self.report("Writing…", 0.4) }
             if out.contains("Reading") { self.report("Verifying…", 0.7) }
         }

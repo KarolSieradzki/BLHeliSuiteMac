@@ -44,6 +44,10 @@ import BLHeliCore
     var brand: UInt8 = 0     // +0x41C
     var plan: FlashPlan?
     var fuses: AVRFuses?
+    /// +0x420 signature of the target (SetDeviceSign, FUN_0062EC98).
+    var deviceSignature = 0
+    /// Lock byte of the shown fuse model (+0x3E8 → +0x11); BLB11 programmed = "Lock Bootloader".
+    var lockByte: UInt8 = 0xFF
     /// +0x415: 0 keep, 1 none, 2 BLHeli, 3 SimonK bootloader (result codes 5/4/2/3 of Execute).
     var bootloaderChoice = 0
 
@@ -90,6 +94,7 @@ import BLHeliCore
                 edt_efuse.visible = f.ext != nil
                 lbl_efuse.visible = f.ext != nil
                 cbxLockBootloader.visible = pnlBootloader.visible
+                showLockBootloader()
                 cbxLockBootloader.enabled = pnlBootloader.visible
                 edt_lfuse.textValue = String(format: "%02X", f.low)
                 edt_hfuse.textValue = String(format: "%02X", f.high)
@@ -197,13 +202,29 @@ import BLHeliCore
             edt_efuse.textValue = String(format: "%02X", f.ext ?? 0xFF)
         }
     }
-    /// btnEditFusesClick (0x62F03C): fuse editor for the values of the dialog.
+    /// btnEditFusesClick (0x62F03C → FUN_0062C250): fuse editor (device fixed, no critical features) for the shown fuses.
     @objc func btnEditFusesClick(_ sender: TObject) {
         let f = shownFuses
-        if let n = TfrmFuseEditor.edit(signature: f.ext == nil ? 0x1E9307 : 0x1E9406, fuses: f) { showFuses(n) }
+        let v = UInt32(f.low) | UInt32(f.high) << 8 | UInt32(f.ext ?? 0xFF) << 16 | UInt32(lockByte) << 24
+        let sig = deviceSignature != 0 ? deviceSignature : (f.ext == nil ? 0x1E9307 : 0x1E9406)
+        if let n = TfrmFuseEditor.edit(signature: sig, chip: v, fuses: v, deviceChangeable: false, critical: false) {
+            showFuses(AVRFuses(low: UInt8(n & 0xFF), high: UInt8((n >> 8) & 0xFF), ext: f.ext == nil ? nil : UInt8((n >> 16) & 0xFF)))
+            lockByte = UInt8(n >> 24)
+            showLockBootloader()
+        }
         layoutDialog()
     }
-    @objc func actLockBootloaderEnabledExecute(_ sender: TObject) { actLockBootloaderEnabled.checked.toggle() }
+
+    /// FUN_0062CA58: "Lock Bootloader" shows BLB11 of the shown fuses.
+    func showLockBootloader() {
+        guard pnlBootloader.visible else { return }
+        cbxLockBootloader.setChecked(lockByte & 0x10 == 0)
+    }
+
+    /// actLockBootloaderEnabledExecute (0x62EFAC): BLB11 := not cbxLockBootloader.Checked.
+    @objc func actLockBootloaderEnabledExecute(_ sender: TObject) {
+        if cbxLockBootloader.checked { lockByte &= ~0x10 } else { lockByte |= 0x10 }
+    }
     /// AppEventsIdle (0x62EFE4): "undo" only when the fuses were changed.
     @objc func AppEventsIdle(_ sender: TObject) {
         guard pnlFuses.visible, let orig = plan?.ispFuses else { return }

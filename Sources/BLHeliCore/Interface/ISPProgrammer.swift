@@ -117,7 +117,7 @@ public final class ISPProgrammer: ESCProgrammer {
 
     /// Complete ISP flash: chip erase + flash + EEPROM (+ fuses), verified by avrdude.
     public func flashComplete(flash: MemoryImage, eeprom: [UInt8]?, fuses: (low: UInt8, high: UInt8, ext: UInt8?)?,
-                              verify: Bool, onOutput: ((String) -> Void)? = nil) throws {
+                              lock: UInt8? = nil, verify: Bool, onOutput: ((String) -> Void)? = nil) throws {
         let ff = tmp.appendingPathComponent("flash-write.hex")
         try flash.intelHex().write(to: ff, atomically: true, encoding: .ascii)
         var args = base
@@ -132,6 +132,7 @@ public final class ISPProgrammer: ESCProgrammer {
             args += ["-U", String(format: "lfuse:w:0x%02X:m", f.low), "-U", String(format: "hfuse:w:0x%02X:m", f.high)]
             if let x = f.ext, part != "m8" { args += ["-U", String(format: "efuse:w:0x%02X:m", x)] }
         }
+        if let l = lock { args += ["-U", String(format: "lock:w:0x%02X:m", l)] }
         let r = try avrdude.run(args, onOutput: onOutput)
         if r.status != 0 { throw AVRDudeError.failed(String(r.output.suffix(1200))) }
         flashCache = nil
@@ -159,6 +160,39 @@ public final class ISPProgrammer: ESCProgrammer {
         }
         guard let lo = value(files[0]), let hi = value(files[1]) else { throw AVRDudeError.failed("Cannot read the fuses.") }
         return AVRFuses(low: lo, high: hi, ext: files.count > 2 ? value(files[2]) : nil)
+    }
+
+    /// Low, high, extended fuse and lock byte as one value (bytes 0…3; no extended fuse on the ATmega8).
+    public func readFuseBytes() throws -> UInt32 {
+        var args = base
+        let mems = part == "m8" ? ["lfuse", "hfuse", "lock"] : ["lfuse", "hfuse", "efuse", "lock"]
+        var files: [String: URL] = [:]
+        for m in mems {
+            let f = tmp.appendingPathComponent("\(m).txt")
+            try? FileManager.default.removeItem(at: f)
+            files[m] = f
+            args += ["-U", "\(m):r:\(f.path):h"]
+        }
+        let r = try avrdude.run(args)
+        if r.status != 0 { throw AVRDudeError.failed(String(r.output.suffix(800))) }
+        func value(_ m: String) -> UInt32? {
+            guard let f = files[m], let s = try? String(contentsOf: f, encoding: .ascii) else { return nil }
+            let t = s.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "0x", with: "")
+            return UInt32(t, radix: 16)
+        }
+        guard let lo = value("lfuse"), let hi = value("hfuse"), let lock = value("lock") else {
+            throw AVRDudeError.failed("Cannot read the fuses.")
+        }
+        return lo | hi << 8 | (value("efuse") ?? 0) << 16 | lock << 24
+    }
+
+    /// Writes low, high, (extended) fuse and the lock byte.
+    public func writeFuseBytes(_ v: UInt32, ext: Bool) throws {
+        var args = base + ["-U", String(format: "lfuse:w:0x%02X:m", v & 0xFF), "-U", String(format: "hfuse:w:0x%02X:m", (v >> 8) & 0xFF)]
+        if ext && part != "m8" { args += ["-U", String(format: "efuse:w:0x%02X:m", (v >> 16) & 0xFF)] }
+        args += ["-U", String(format: "lock:w:0x%02X:m", v >> 24)]
+        let r = try avrdude.run(args)
+        if r.status != 0 { throw AVRDudeError.failed(String(r.output.suffix(800))) }
     }
 
     public func writeFuses(_ f: AVRFuses) throws {

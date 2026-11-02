@@ -511,8 +511,10 @@ extension TfrmBLHeliSuiteMain {
         dlg.flashToText = newName
         dlg.flashTo2Text = flashTo2
         dlg.plan = plan
+        dlg.deviceSignature = Int(dev.mcu?.signature ?? 0)
         let res = dlg.execute()
         if let f = dlg.fuses { plan.ispFuses = f }
+        if intf == .atmISP && dlg.lockByte != 0xFF { plan.ispLock = dlg.lockByte }
         if dlg.bootloaderChoice == 4 { plan.ispBootloader = nil }
         dlg.release()
         if res == 0 { throw EAbort() }

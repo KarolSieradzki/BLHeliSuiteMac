@@ -246,12 +246,10 @@ import BLHeliCore
     }
 
     @objc func actShowFavoritesOnlyExecute(_ sender: TObject) {
-        actShowFavoritesOnly.checked.toggle()
         fillESCList(); fillRevisions(); fillList()
     }
 
     @objc func actIgnoreInappropriateMCUExecute(_ sender: TObject) {
-        actIgnoreInappropriateMCU.checked.toggle()
         fillESCList(); fillRevisions(); fillList()
     }
 

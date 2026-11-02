@@ -247,6 +247,8 @@ open class TCheckBox: TControl {
 
     open override func click() {
         if let a = action, onClick == nil {
+            // Delphi: Toggle (State) → Click → Action.Execute; AutoCheck actions then sync the box again
+            setChecked(!checked)
             a.execute()
             return
         }

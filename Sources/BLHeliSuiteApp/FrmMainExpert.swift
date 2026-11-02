@@ -396,20 +396,29 @@ extension TfrmBLHeliSuiteMain {
 
     // MARK: - fuses (actEditFusesExecute 0x67C9C8)
 
+    /// Connects avrdude, identifies the target and reads all fuses, then opens the fuse editor
+    /// (device fixed, critical features off: FUN_0062C320(avrdude, False, False)).
     @objc func actEditFusesExecute(_ sender: TObject) {
-        if !avrdude.connected {
-            do { try avrdude.connect() } catch { MsgDlg.error(error.localizedDescription); return }
-        }
-        guard let isp = avrdude.isp else { return }
-        Screen.busy = true
-        let dev = try? isp.selectESC(0)
-        let fuses = dev == nil ? nil : try? isp.readFuses()
-        Screen.busy = false
-        guard let d = dev, let f = fuses else {
-            MsgDlg.error(DFormat(NL("Avrdude FAILED!\\n\\n\"%s\""), [NL("Cannot read the fuses.")]))
+        var chip: UInt32 = 0
+        var sig = 0
+        do {
+            Screen.busy = true
+            defer { Screen.busy = false }
+            if !avrdude.connected { try avrdude.connect() }
+            guard let isp = avrdude.isp else { return }
+            let d = try isp.selectESC(0)
+            avrdude.device = d
+            sig = Int(d.mcu?.signature ?? 0)
+            chip = try isp.readFuseBytes()
+        } catch {
+            MsgDlg.error(DFormat(NL("Avrdude FAILED!\\n\\n\"%s\""), [error.localizedDescription]))
             return
         }
-        TfrmFuseEditor.execute(isp: isp, signature: d.mcu?.signature ?? 0, fuses: f)
+        if avrdude.bootloaderMode {
+            MsgDlg.error(NL("Cannot read fuses in bootloader mode."))
+            return
+        }
+        TfrmFuseEditor.execute(avrdude: avrdude, signature: sig, chip: chip, deviceChangeable: false, critical: false)
     }
 
     // MARK: - misc

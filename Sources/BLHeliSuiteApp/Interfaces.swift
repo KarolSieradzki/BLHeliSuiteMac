@@ -171,6 +171,8 @@ final class AVRDudeIntf {
     var lockedBits = false
     var device: DeviceInfo?
     var connected: Bool { isp != nil }
+    /// TAVRDude+0x38: programming through a bootloader (Arduino) – fuses cannot be accessed.
+    var bootloaderMode: Bool { programmer == "arduino" }
     var targetConnected: Bool { device != nil }
 
     func connect() throws {

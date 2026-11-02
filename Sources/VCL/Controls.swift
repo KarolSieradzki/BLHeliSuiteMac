@@ -74,6 +74,9 @@ open class TControl: NSView, VCLComponent {
         super.init(frame: frame)
         font.onChange = { [weak self] in self?.fontChanged() }
         wantsLayer = false
+        // Windows controls never paint outside their bounds (a control with Height = 0 is invisible);
+        // since the macOS 14 SDK views do not clip by default.
+        if #available(macOS 14.0, *) { clipsToBounds = true }
     }
 
     public required init?(coder: NSCoder) { fatalError() }
