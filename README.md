@@ -169,6 +169,9 @@ Known differences from Windows:
 * There is no Windows help file; F1 does nothing (as in BLHeliSuite without its help file).
 * The ISP part of the flash confirmation dialog (choice of bootloader type and bootloader pin) is still a
   simplified version of the original; check the fuses shown there before flashing over ISP.
+* *Expert → Verify flash memory* and *Identify flash memory* are simplified: verify compares the ESC with a
+  hex file you pick (the original first looks up the matching hex in its library and treats the parameter and
+  bootloader sections separately); identify only searches the built-in library.
 * Windows components are replaced by native code speaking the same protocols: the ToolStick is driven over
   IOKit HID instead of `SiUtil.dll` / `USBHID.dll`, Arduino boards are flashed by a built-in STK500 loader
   (avrdude from Homebrew for ISP and some boards).
