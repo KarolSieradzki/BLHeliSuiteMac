@@ -155,7 +155,7 @@ public struct ParamContext: Equatable, Sendable {
         self.firmware = firmware
     }
 
-    var supportsDampedLight: Bool {
+    public var supportsDampedLight: Bool {
         guard let l = layout else { return false }
         return l.damped <= layoutRevision
     }

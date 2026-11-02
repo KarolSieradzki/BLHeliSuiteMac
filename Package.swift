@@ -9,6 +9,7 @@ let package = Package(
         .executable(name: "blheli-cli", targets: ["BLHeliCLI"]),
         .executable(name: "blheli-sim", targets: ["BLHeliSim"]),
         .executable(name: "blheli-selftest", targets: ["BLHeliSelfTest"]),
+        .executable(name: "vcl-preview", targets: ["VCLPreview"]),
     ],
     targets: [
         .target(
@@ -19,9 +20,18 @@ let package = Package(
                 .linkedFramework("CoreFoundation"),
             ]
         ),
+        .target(
+            name: "VCL",
+            path: "Sources/VCL"
+        ),
+        .executableTarget(
+            name: "VCLPreview",
+            dependencies: ["VCL"],
+            path: "Sources/VCLPreview"
+        ),
         .executableTarget(
             name: "BLHeliSuiteApp",
-            dependencies: ["BLHeliCore"],
+            dependencies: ["BLHeliCore", "VCL"],
             path: "Sources/BLHeliSuiteApp"
         ),
         .executableTarget(

@@ -166,19 +166,28 @@ NEW=$STAGE/BLHeliSuite.app
 mkdir -p "$NEW/Contents/MacOS" "$NEW/Contents/Resources"
 cp "$BIN/BLHeliSuite" "$BIN/blheli-cli" "$NEW/Contents/MacOS/"
 cp Resources/FirmwareDB.bin "$NEW/Contents/Resources/"
+# formularze (DFM), bitmapy, RCData i teksty wyciągnięte z BLHeliSuite.exe (Tools/extract_vcl_resources.py)
+[[ -f Resources/VCL/Forms/TFRMBLHELISUITEMAIN.dfm ]] || { print -u2 "Brak Resources/VCL – uruchom Tools/extract_vcl_resources.py."; exit 1 }
+ditto Resources/VCL "$NEW/Contents/Resources/VCL"
+find "$NEW/Contents/Resources/VCL" -name .DS_Store -delete
 MANUALS=("$ORIG"/Manuals/*.(pdf|xls)(N))
 if (( ${#MANUALS} )); then
   mkdir -p "$NEW/Contents/Resources/Manuals"
   cp "${MANUALS[@]}" "$NEW/Contents/Resources/Manuals/"
 fi
-if [[ -d $ORIG/Interfaces ]]; then
-  (cd "$ORIG/Interfaces" && find . -iname '*.hex' -print0 | while IFS= read -r -d '' f; do
-     mkdir -p "$NEW/Contents/Resources/Interfaces/${f:h}"
-     cp "$f" "$NEW/Contents/Resources/Interfaces/$f"
+# pliki z dystrybucji Windows: firmware interfejsów (hex + eep), BLHeli_HexFiles, SimonK_HexFiles, Settings
+copy_tree() {  # copy_tree <folder> <find args…>
+  local src=$ORIG/$1; shift
+  [[ -d $src ]] || { print "Uwaga: brak $src"; return }
+  (cd "$src" && find . -type f \( "$@" \) -print0 | while IFS= read -r -d '' f; do
+     mkdir -p "$NEW/Contents/Resources/${src:t}/${f:h}"
+     cp "$f" "$NEW/Contents/Resources/${src:t}/$f"
    done)
-else
-  print "Uwaga: brak $ORIG/Interfaces – zakładka Make Interfaces nie będzie miała plików Arduino."
-fi
+}
+copy_tree Interfaces -iname '*.hex' -o -iname '*.eep'
+copy_tree BLHeli_HexFiles -iname '*.hex' -o -iname '*.cfg' -o -iname 'Readme.txt'
+copy_tree SimonK_HexFiles -iname '*.hex' -o -iname '*.cfg'
+copy_tree Settings -iname '*.txt'
 
 ICON=$ROOT/.build/AppIcon.icns
 if [[ ! -f $ICON || Tools/make_icon.swift -nt $ICON ]]; then

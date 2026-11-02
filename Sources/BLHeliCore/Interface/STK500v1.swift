@@ -97,9 +97,16 @@ public final class STK500v1 {
             }
         }
         try enterProgramming()
+        let end = image.highestAddress.map { ($0 / pageSize + 1) * pageSize } ?? 0
+        try program(image, pageSize: pageSize) { d, _ in progress?(d, verify ? 2 * end : end) }
+        if verify { try self.verify(image, pageSize: pageSize) { d, _ in progress?(end + d, 2 * end) } }
+        try leaveProgramming()
+    }
+
+    /// Writes every non-empty page of `image` (STK_PROG_PAGE).
+    public func program(_ image: MemoryImage, pageSize: Int, progress: ProgressHandler? = nil) throws {
         guard let hi = image.highestAddress else { return }
         let end = (hi / pageSize + 1) * pageSize
-        let total = verify ? 2 * end : end
         var addr = 0
         while addr < end {
             let page = image.read(addr, pageSize)
@@ -108,23 +115,26 @@ public final class STK500v1 {
                 try programPage(page)
             }
             addr += pageSize
-            progress?(addr, total)
+            progress?(addr, end)
         }
-        if verify {
-            addr = 0
-            while addr < end {
-                let expected = image.read(addr, pageSize)
-                if expected.contains(where: { $0 != 0xFF }) {
-                    try loadAddress(byteAddress: addr)
-                    let got = try readPage(pageSize)
-                    if let i = zip(got, expected).enumerated().first(where: { $0.element.0 != $0.element.1 })?.offset {
-                        throw STK500Error.verifyFailed(addr + i)
-                    }
+    }
+
+    /// Reads back every non-empty page of `image` and compares it (STK_READ_PAGE).
+    public func verify(_ image: MemoryImage, pageSize: Int, progress: ProgressHandler? = nil) throws {
+        guard let hi = image.highestAddress else { return }
+        let end = (hi / pageSize + 1) * pageSize
+        var addr = 0
+        while addr < end {
+            let expected = image.read(addr, pageSize)
+            if expected.contains(where: { $0 != 0xFF }) {
+                try loadAddress(byteAddress: addr)
+                let got = try readPage(pageSize)
+                if let i = zip(got, expected).enumerated().first(where: { $0.element.0 != $0.element.1 })?.offset {
+                    throw STK500Error.verifyFailed(addr + i)
                 }
-                addr += pageSize
-                progress?(end + addr, total)
             }
+            addr += pageSize
+            progress?(addr, end)
         }
-        try leaveProgramming()
     }
 }

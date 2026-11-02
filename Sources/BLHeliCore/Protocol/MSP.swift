@@ -145,6 +145,22 @@ public final class MSPClient {
         return flags & 1 != 0
     }
 
+    /// MSP_STATUS: loop cycle time (µs) and ARM flag.
+    public func status() throws -> (cycleTime: Int, armed: Bool) {
+        let s = try request(MSPCommand.status)
+        guard s.count >= 10 else { return (0, false) }
+        let flags = UInt32(s[6]) | UInt32(s[7]) << 8 | UInt32(s[8]) << 16 | UInt32(s[9]) << 24
+        return (Int(s[0]) | Int(s[1]) << 8, flags & 1 != 0)
+    }
+
+    /// MSP_FEATURE bit 12: 3D mode.
+    public func is3D() throws -> Bool {
+        let f = try request(MSPCommand.feature)
+        guard f.count >= 4 else { return false }
+        let v = UInt32(f[0]) | UInt32(f[1]) << 8 | UInt32(f[2]) << 16 | UInt32(f[3]) << 24
+        return v & (1 << 12) != 0
+    }
+
     public func motorValues() throws -> [Int] {
         let m = try request(MSPCommand.motor)
         return stride(from: 0, to: m.count - 1, by: 2).map { Int(m[$0]) | Int(m[$0 + 1]) << 8 }

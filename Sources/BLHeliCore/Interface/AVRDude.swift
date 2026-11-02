@@ -24,6 +24,14 @@ public struct AVRDudeProgrammerType: Identifiable, Hashable, Sendable {
     public let serial: Bool
     public let baud: Int
 
+    public init(name: String, description: String, type: String, serial: Bool, baud: Int) {
+        self.name = name
+        self.description = description
+        self.type = type
+        self.serial = serial
+        self.baud = baud
+    }
+
     public static let common: [AVRDudeProgrammerType] = [
         AVRDudeProgrammerType(name: "usbasp", description: "USBasp (USB)", type: "usbasp", serial: false, baud: 0),
         AVRDudeProgrammerType(name: "usbasp-clone", description: "USBasp clone (USB)", type: "usbasp-clone", serial: false, baud: 0),

@@ -58,6 +58,15 @@ public struct SerialPortInfo: Identifiable, Hashable, Sendable {
     public let productID: Int?
     public let serialNumber: String?
 
+    public init(path: String, name: String, product: String?, vendorID: Int?, productID: Int?, serialNumber: String?) {
+        self.path = path
+        self.name = name
+        self.product = product
+        self.vendorID = vendorID
+        self.productID = productID
+        self.serialNumber = serialNumber
+    }
+
     public var displayName: String {
         if let p = product, !p.isEmpty { return "\(name) – \(p)" }
         return name

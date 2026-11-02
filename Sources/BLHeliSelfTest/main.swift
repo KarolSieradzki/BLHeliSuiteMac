@@ -355,32 +355,128 @@ if enabled("e2e-toolstick") { test("Toolstick C2: flash an erased EFM8BB21 incl.
     expect(esc.settings.value(.direction) == 2, "setup written via C2")
 } }
 
-if enabled("arduino") { test("Make interface: flash 4way-if firmware into an Arduino Nano (STK500v1)") {
+if enabled("arduino") { test("Make interfaces: firmware files and native Arduino flash (STK500v1)") {
     guard let folder = ArduinoBoard.interfacesFolder() else { expect(false, "Interfaces folder"); return }
+    expect(ArduinoBoard.all.count == 27, "27 boards like BLHeliSuite")
     let nano = ArduinoBoard.all.first { $0.tag == "Nano_328" }!
-    let hex = nano.firmwareURL(.fourWayMulti, in: folder)
-    expect(hex?.lastPathComponent == "4wArduino_Nano__16_MULTIv20005.hex", "firmware file \(hex?.lastPathComponent ?? "nil")")
-    for b in ArduinoBoard.all where b.nativeFlashSupported {
-        for k in ArduinoBoard.InterfaceFirmware.allCases where b.firmwarePath(k) != nil && b.part != "m8" && b.part != "m1280" {
-            if k == .fourWayPD3PD2 && b.tag != "Nano_328" { continue }
-            if k == .blheliBootloader && !["Uno", "Nano_328", "Nano_168", "Nano_328_new"].contains(b.tag) { continue }
-            expect(b.firmwareURL(k, in: folder) != nil, "\(b.tag) \(k.rawValue) file exists (\(b.firmwarePath(k) ?? ""))")
-        }
+    let mask = InterfaceFirmwareFiles.fourWayMask(nano)
+    expect(mask == "Arduino_Nano*_16_*.hex", "Nano mask \(mask)")
+    expect(InterfaceFirmwareFiles.options(name: InterfaceFirmwareFiles.fourWayName(nano), mask: mask, in: folder) == 1 << 8, "only the 4w option")
+    let files = InterfaceFirmwareFiles.find("4w" + mask, in: folder).map(\.lastPathComponent)
+    expect(files == ["4wArduino_Nano__16_MULTIv20005.hex", "4wArduino_Nano__16_PB3PB4v20005.hex", "4wArduino_Nano__16_PD3PD2v20005.hex"], "Nano files \(files)")
+    for b in ArduinoBoard.all where ["m328p", "m168", "m2560", "m1280"].contains(b.part) {
+        expect(!InterfaceFirmwareFiles.find("4w" + InterfaceFirmwareFiles.fourWayMask(b), in: folder).isEmpty, "\(b.tag) 4way-if files")
     }
-    guard let url = hex else { return }
-    let image = try MemoryImage.loadIntelHex(url: url)
+    expect(InterfaceFirmwareFiles.options(name: "Arduino_Uno_LCD1602", mask: "Arduino_Uno_LCD1602*.hex", in: folder) == 1 << 8, "LCD1602 option")
+    expect(InterfaceFirmwareFiles.matches("4wArduino_m328P_16_MULTIv20005.hex", "4warduino_m328p*_16_*.hex"), "case-insensitive mask")
+    let hex = folder.appendingPathComponent("Arduino4w-if/4wArduino_Nano__16_MULTIv20005.hex")
+    let image = try MemoryImage.loadIntelHex(url: hex)
     let pty = try PseudoTerminal()
     let boot = SimulatedArduinoBootloader(channel: pty)
     boot.start()
     defer { boot.stop(); pty.close() }
-    let port = SerialPort(path: pty.slavePath)
-    try port.open(baudRate: 57600)
+    let loader = ArduinoLoader()
+    loader.programmer = "arduino"
+    loader.part = "m328p"
+    loader.port = pty.slavePath
+    loader.baud = 57600
+    try loader.connect()
     pty.releaseSlaveHold()
-    defer { port.close() }
-    try STK500v1(port: port).flash(image, pageSize: 128, expectedSignature: 0x1E950F, verify: true)
+    expect(loader.foundSignature == 0x1E950F && loader.foundPart == "ATmega328P", "signature \(loader.foundPart)")
+    try loader.flash(hex)
     var same = true
     for (a, b) in image.bytes where boot.flash[a] != b { same = false; break }
     expect(same, "Arduino flash content")
+    expect(loader.resultText.hasSuffix("bytes of flash verified"), "result \(loader.resultText)")
+    loader.part = "m168"
+    var refused = false
+    do { try loader.flash(hex) } catch { refused = true }
+    expect(refused, "wrong MCU refused like avrdude")
+} }
+
+if enabled("blb-com") { test("BLHeli Bootloader (USB/Com, 1-wire): Atmel setup + flash 14.9") {
+    let li = db.layoutIndex(family: .atmel, name: "AFRO_12A")!
+    let all = db.entries(family: .atmel, layout: li, mode: .multi)
+    let e148 = all.first { $0.revStr == "14.8" }!, e149 = all.first { $0.revStr == "14.9" }!
+    let esc = SimulatedESC(mcu: MCUTable.byAVRSignature(0x1E9307)!)
+    esc.program(flash: db.flashImage(e148), eeprom: db.eepromImage(e148))
+    if let boot = db.bootloaderImage(named: "BLHELI_M8_16_PB0") { esc.program(flash: boot) }
+    let pty = try PseudoTerminal()
+    let line = SimulatedBLHeliBootloaderLine(channel: pty, esc: esc)
+    line.start()
+    defer { line.stop(); pty.close() }
+    let p = try BLHeliBootloaderProgrammer.open(portPath: pty.slavePath, baud: 19200, family: .atmel)
+    pty.releaseSlaveHold()
+    defer { p.disconnect() }
+    let ops = ESCOperations(programmer: p)
+    let dev = try p.selectESC(0)
+    expect(dev.mcu?.name == "ATmega8" && dev.interfaceMode == .atmelBLB, "ATmega8 via 1-wire: \(dev.description)")
+    var cur = try ops.readSettings(device: dev)
+    try cur.validate()
+    cur.setValue(.direction, 2)
+    try ops.writeSettings(cur, device: dev)
+    let plan = FirmwareSelection.makePlan(db, entry: e149, current: cur).plan
+    try ops.flash(plan, device: dev, currentSettings: cur)
+    let after = try ops.readSettings(device: dev)
+    expect(after.revisionString == "14.9" && after.value(.direction) == 2, "14.9 + direction kept: \(after.summary(database: db))")
+    expect(Array(esc.flash[0..<(0x2000 - 0x200)]) == db.flashImage(e149).read(0, 0x2000 - 0x200), "flash content")
+    try p.keepAlive()
+} }
+
+if enabled("blb-com") { test("BLHeli Bootloader (USB/Com, 1-wire): SiLabs read + flash 16.7") {
+    let e166 = blheliS("A_H_30", "16.6"), e167 = blheliS("A_H_30", "16.7")
+    let esc = makeSiLabsESC(e166)
+    let pty = try PseudoTerminal()
+    let line = SimulatedBLHeliBootloaderLine(channel: pty, esc: esc)
+    line.start()
+    defer { line.stop(); pty.close() }
+    let p = try BLHeliBootloaderProgrammer.open(portPath: pty.slavePath, baud: 19200, family: .silabs)
+    pty.releaseSlaveHold()
+    defer { p.disconnect() }
+    let ops = ESCOperations(programmer: p)
+    let dev = try p.selectESC(0)
+    expect(dev.mcu?.name == "EFM8BB21F16G" && dev.interfaceMode == .siLabsBLB, "EFM8BB21 via 1-wire: \(dev.description)")
+    let cur = try ops.readSettings(device: dev)
+    expect(cur.layoutName == "A_H_30" && cur.revisionString == "16.6", "settings \(cur.summary(database: db))")
+    let plan = FirmwareSelection.makePlan(db, entry: e167, current: cur).plan
+    try ops.flash(plan, device: dev, currentSettings: cur)
+    let after = try ops.readSettings(device: dev)
+    expect(after.revisionString == "16.7", "16.7 written: \(after.summary(database: db))")
+} }
+
+if enabled("sk") { test("SimonK bootloader through ArduinoUSBLinker: settings + setup + flash") {
+    let li = db.layoutIndex(family: .atmel, name: "AFRO_12A")!
+    let all = db.entries(family: .atmel, layout: li, mode: .multi)
+    let e148 = all.first { $0.revStr == "14.8" }!, e149 = all.first { $0.revStr == "14.9" }!
+    let esc = SimulatedESC(mcu: MCUTable.byAVRSignature(0x1E9307)!)
+    esc.program(flash: db.flashImage(e148), eeprom: db.eepromImage(e148))
+    let pty = try PseudoTerminal()
+    let sim = SimulatedSimonKBootloader(channel: pty, esc: esc, aulSketch: true)
+    sim.start()
+    defer { sim.stop(); pty.close() }
+    let aul = ArduinoUSBLinker()
+    aul.portPath = pty.slavePath
+    expect(aul.connect(), "AUL found")
+    pty.releaseSlaveHold()
+    expect(aul.pin == 18 && aul.pinNumber(port: "D", 3) == 19, "AUL pins \(aul.statusLine)")
+    try aul.writeSettings(pin: 19, bitTime: 136, baud: aul.baud, save: true)
+    expect(sim.aulPin == 19 && aul.pin == 19, "pin D3 written")
+    aul.close()
+    let sp = SerialPort(path: pty.slavePath)
+    try sp.open(baudRate: 19200)
+    let p = SimonKProgrammer(port: sp, linkerName: "ArduinoUSBLinker")
+    defer { p.disconnect() }
+    let ops = ESCOperations(programmer: p)
+    let dev = try p.selectESC(0)
+    expect(dev.mcu?.name == "ATmega8" && dev.interfaceMode == .atmelSK, "ATmega8 via SK: \(dev.description)")
+    var cur = try ops.readSettings(device: dev)
+    try cur.validate()
+    cur.setValue(.direction, 2)
+    try ops.writeSettings(cur, device: dev)
+    let plan = FirmwareSelection.makePlan(db, entry: e149, current: cur).plan
+    try ops.flash(plan, device: dev, currentSettings: cur)
+    let after = try ops.readSettings(device: dev)
+    expect(after.revisionString == "14.9" && after.value(.direction) == 2, "14.9 via SK: \(after.summary(database: db))")
 } }
 
 if enabled("e2e-armed") { test("FC armed: passthrough refused") {

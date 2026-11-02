@@ -138,6 +138,36 @@ public final class ISPProgrammer: ESCProgrammer {
         eepromCache = nil
     }
 
+    /// Reads lfuse, hfuse and (except ATmega8) efuse.
+    public func readFuses() throws -> AVRFuses {
+        var args = base
+        var mems = ["lfuse", "hfuse"]
+        if part != "m8" { mems.append("efuse") }
+        var files: [URL] = []
+        for m in mems {
+            let f = tmp.appendingPathComponent("\(m).txt")
+            try? FileManager.default.removeItem(at: f)
+            files.append(f)
+            args += ["-U", "\(m):r:\(f.path):h"]
+        }
+        let r = try avrdude.run(args)
+        if r.status != 0 { throw AVRDudeError.failed(String(r.output.suffix(800))) }
+        func value(_ f: URL) -> UInt8? {
+            guard let s = try? String(contentsOf: f, encoding: .ascii) else { return nil }
+            let t = s.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "0x", with: "")
+            return UInt8(t, radix: 16)
+        }
+        guard let lo = value(files[0]), let hi = value(files[1]) else { throw AVRDudeError.failed("Cannot read the fuses.") }
+        return AVRFuses(low: lo, high: hi, ext: files.count > 2 ? value(files[2]) : nil)
+    }
+
+    public func writeFuses(_ f: AVRFuses) throws {
+        var args = base + ["-U", String(format: "lfuse:w:0x%02X:m", f.low), "-U", String(format: "hfuse:w:0x%02X:m", f.high)]
+        if let x = f.ext, part != "m8" { args += ["-U", String(format: "efuse:w:0x%02X:m", x)] }
+        let r = try avrdude.run(args)
+        if r.status != 0 { throw AVRDudeError.failed(String(r.output.suffix(800))) }
+    }
+
     public func resetESC(_ index: Int) throws {}
     public func keepAlive() throws {}
     public func disconnect() { isConnected = false }

@@ -1,0 +1,828 @@
+64704	Update Firmware with file "%s"?
+64705	A new version of %s is available.\\nDo you want to download "BLHeliSuite History.pdf" and show the recent changes in Version %s?
+64706	Do you want to go to the webpage and download version %s?
+64707	You are using the latest available version %s
+64708	Failed to retrieve the version info.
+64709	Connect to Interface/Device:
+64710	Interface connected.
+64711	Disconnect Interface/Device:
+64712	Interface/Device not connected.
+64713	Choosing the wrong MCU or ESC Layout may cause severe damages and/or injuries!\\n\\nPlease always check very carefully, that you are flashing the exact matching hex file to your ESC.\\nRead seriously the "supported ESC" manual(folder: \\BLHeliSuite\\manuals\\nand check your ESC against the included images.\\nIf you are unsure, do not flash the ESC, and ask someone else for help.\\n\\nThe author of this software does not take either warranty nor responsibility for damages, injuries\\nor unwanted results caused by the use of this software.
+64714	KEEP CAUTION WHILE TESTING THE ESC:\\n\\nAlways remove all propellers!\\nYou risk your health, when getting in touch with running propellers.\\n\\nUse a power supply with overcurrent protection!\\nESCs with issues or wrong paramter settings might fry itself or the motor, catch fire\\nor parts might even explode and cause serious injuries.\\n
+64715	Info about...
+64720	Failed to update %s with:\\n\\n%s\\n
+64721	\\nFile size exeeds avaliable flash space: %d vs. %d
+64722	Wait for Flash write to complete....
+64723	Wait for EEProm write to comlete....
+64724	Wrong Box type: found "%s" does not match "%s"\\n
+64725	Connection to BLHeliSuite-Box/Device at COM%d failed!\\n\\nError: "%s"\\n\\nPlease check usb/serial port settings!
+64726	Connection to BLHeliSuite-Box/Device failed!\\nPlease check usb/serial port- und power-connections to the Box/Device!
+64727	Can not find Bootloader config.
+64728	Choose %s bootloader file for %s BLHeliSuite-Box
+64729	Choose %s firmware file for %s BLHeliSuite-Box
+64730	Error while merging bootloader into flash memory
+64731	Just to let You know:\\n\\nThe original Firmware will be erased.\\nAfter doing so, there is no way back\\nto the Vendor supplied state....
+64732	Do you want to flash your %s with:
+64733	Internal Error
+64734	Drag and drop is only allowed for a single file.
+64735	Import settings from file "%s"?
+64736	Board is not supported yet - or missing File\\n%s
+64737	 for BLHeli Bootloader Interface usage?
+64738	Please select "SILABS or ATMEL BLHeli Bootloader (USB/Com)" Interface.
+64739	Flash "Robbe LCD ROXXY Programmer V2 Box"\\nwith 
+64740	Flash "Turnigy AquaStar Water Cooled ESC Program Box"\\nwith 
+64741	Flash "Turnigy dlux Programming Box w/Data Logging Feature"\\n(old or new Keyboard layout)\\nwith 
+64742	Flash "Turnigy TrackStar Turbo and Waterproof ESC Programming Box"\\n(uses firmware for Turnigy dlux Box)\\nwith 
+64743	Flash "Turnigy 160A 1:8th Scale Sensorless ESC Programming Box"\\n(uses firmware for Turnigy dlux Box)\\nwith 
+64744	Flash plain Atmega8 8Mhz internal Osc\\nwith 
+64745	Flash "Arduino UNO with LCD 1602 Keypad Shield"\\nwith 
+64746	Flash "Arduino UNO with LCD 4884 Shield"\\nwith 
+64747	Please connect and power up the BLHeliSuite-Box
+64748	Cannot locate corresponding EEPROM file: %s
+64749	Do you want to update your %s with:\\n\\n%s ?\\n
+64750	Do you want to update your %s BLHeliSuite-Box with:\\n\\n%s\\nand\\n%s ?\\n
+64751	Failed to update %s BLHeliSuite-Box with:\\n\\n%s\\n
+64752	 "%s" files
+64753	Do you want to flash your\\n\\n"%s" at COM%d with:\\n\\n%s?
+64754	Wait for Avrdude to complete....
+64755	Flashing with AVRDude:
+64756	Arduino flashed sucsessfully by Avrdude.
+64757	Arduino flash by Avrdude FAILED!
+64758	Boards with: %s are not supported yet.
+64759	File not found:\\n%s
+64760	 for SK Bootloader usage?
+64761	Please select "ATMEL SK Bootloader (ArduinoUSBLinker)" Interface\\nand set connection speed between %d and %d baud.
+64762	Do you want to setup the Nano "ArduinoUSBLinker"\\nfor using Servo plug connected to %s|-|GND ?
+64763	Settings written to "ArduinoUSBLinker" successfully.
+64764	Failed to write settings to "ArduinoUSBLinker".
+64765	Flash Turnigy Delux Box...\\n\\nSelect Keyboard layout:\\nYES = New Layout (Left|Up|Down|Right)\\nNO  = Old Layout (Left|Up|Right|Down)
+64766	 for ISP Interface usage?
+64767	Please select "ATMEL ISP Interface" with "ArduinoISP" as programmer\\nand set connection speed to %d baud.
+64768	Use to connect ESC over:\\n- Atmel SimonK bootloader
+64769	Successfully updated %s BLHeliSuite-Interface with:\\n\\n%s
+64770	Failed to update %s BLHeliSuite-Box with:\\n\\n%s
+64771	Selectable interface options
+64772	Interface option selectable: "%s"
+64773	Initial Flash (including Bootloader) over ISP
+64774	Initial ISP Flash w. Bootloader
+64775	Click to google product information.
+64776	Make Standalone Atmega Boxes
+64777	Make Standalone Arduino Boxes
+64778	Make Arduino Interface Boards
+64779	Default baud rate for "Arduino %s" board is: %d
+64780	Flash "Arduino %s" \\nwith 
+64781	"Arduino %s" should have a %s MCU on board.\\nAVRDude found instead: %s. Please check the settings!
+64782	No firmware file found for "%s"
+64783	Choose firmware file for %s
+64784	with
+64785	files
+64786	The default connection baud rate for the bootloader of the interface is %d.\\nIt should not be changed, unless otherwise noted.
+64787	Select the appropriate COM port for the interface.
+64788	Choose the Arduino board to make...
+64789	Arduino 4way-interface
+64790	Setup ArduinoUSBLinker
+64791	Change used Pin and/or Speed of ArduinoUSBLinker.\\n(temporarily or permanent)
+64792	Flash "Arduino %s" \\nat COM%d
+64793	ArduinoISP sketch
+64794	BLHeliSuite 4way-interface firmware
+64795	USB/UART 1-Wire bridge firmware
+64796	ArduinoUSBLinker sketch
+64797	Use to flash Atmel ESC initially over\\n- 6-Pin ISP connection.
+64798	Use to connect ESC over either:\\n- SiLabs C2 interface\\n- Atmel/SiLabs BLHeli bootloader\\n- Atmel SimonK bootloader
+64799	Use to connect ESC over:\\n- Atmel/SiLabs BLHeli bootloader
+64800	AUL failed to set baudrate @COM%d|%d
+64801	AUL Connect @COM%d|%d
+64802	AUL Failed first try: Waiting ms %d
+64803	InitRead
+64804	ArduinoUSBLinker Settings
+64805	Read
+64806	Write
+64807	Default
+64808	Save to EEprom
+64809	On Write: Save settings to EEprom and make them power-on defaults
+64810	Bit Time
+64811	Port
+64812	Pin
+64813	Baud rate
+64814	Please select a valid COM port first
+64815	and
+64816	Invalid Parameter
+64817	Invalid Package
+64818	General Error
+64819	COM Read Error
+64820	COM Write Error
+64821	COM Echo Error
+64822	COM Timeout Error
+64823	Local CRC Error
+64824	Unknown ACK
+64825	Connection to %s at %s failed!\\n\\nError: "%s"\\n\\nPlease check usb/serial port settings!
+64826	Buffer overflow
+64827	Invalid UTF7
+64828	Connection to %s failed!\\n\\nError: "%s"
+64829	Info
+64830	 Unable to connect to ArduinoUSBLinker at COM%d
+64831	AUL Connect at COM%d
+64832	Found different version of BLHeli.\\nSource: Rev.%s vs. destination: Rev.%s\\nDo you want to transform the parameters to the best match?
+64833	Cannot apply settings: Found different version of EEprom structure without transformation.
+64834	Cannot apply settings: Found different version of EEprom structure.
+64835	Target name is: "%s"\\nChange target name to "%s"?
+64836	Target is not able to run in damped mode.\\nPWM frequency setting will not be applied.
+64837	Setup section size too small: %d
+64838	 - SERVO direct
+64839	[B D 2 3] SILABS and ATMEL switchable (for C2,  BLHeli or SK Bootloader)
+64840	[D 2 3] SILABS and ATMEL switchable - SERVO direct (for BLHeli or SK Bootloader)
+64841	OK
+64842	Unknown Error
+64843	Invalid Command
+64844	CRC Error
+64845	Verify Error
+64846	Command Failed
+64847	Invalid ESC Channel
+64848	Firmware revision <2.0 is not supported!\\nFound EEProm layout rev %d
+64849	Firmware EEProm layout error!\\n(Found Rev.%d)\\nUnflashed, erased or invald ESC type?
+64850	file
+64851	Setup file
+64852	Unsupported or invald ESC Type: "%s"
+64853	Noname
+64854	Wrong size of memory block to write to...
+64855	MCU ID error!\\n"%s"\\n\\nUnflashed, erased or invald ESC type?
+64856	ESC not in list: %s
+64857	Unsupported or invald ESC Mode: 0x%.2x 0x%.2x
+64858	This application supports EEProm layouts up to revision %d.
+64859	This application supports firmware up to revision %d.%d.
+64860	Found Firmware revision: %s / EEProm layout revision: %d.
+64861	Please get the latest revision of BLHeliSuite or reflash the ESC with rev %d.%d ...
+64862	Cannot apply settings: ESC mode (MAIN - TAIL - MULTI) does not match.
+64863	Cannot apply settings: BLHeli "S"  does not match BLHeli "non S".
+64864	Set checkmark to activate motor re-arming procedure after every stop of the motor.\\n(Remark: may be useful for MAIN ESCs if Governor Mode = ARM)
+64865	Set and/or lookup the resulting head speed in Governormode here.
+64866	BUG: Governor Range: always HIGH in rev. 6.2 to 10.0\\nThis Bug was fixed in rev. 10.1.
+64867	%s\\n%s (us)\\nDifference between MIN and MAX must not fall below %d (us)
+64868	Determines the volume of the ESC startup beep tones.
+64869	Determines the volume of the ESC beacon and\\nDShot initiated signal tones.
+64870	BCD overflow
+64871	%s is not a valid BCD value
+64872	Could not parse SQL TimeStamp string
+64873	Invalid SQL date/time values
+64874	OK
+64875	FAILED
+64876	Load Hex Library File Error: Unable to load "%s".
+64877	Please copy "%s" into the application folder
+64878	Settings are not initialized and cannnot be saved.
+64879	Settings of Version < 2.0 cannot be saved by this application.
+64880	Save screenshot and dialog text to file...
+64881	Save screenshot to file...
+64882	Canceled by user.
+64883	Unsupported descending Extended Segment Address Record (RECTYP = $02)
+64884	Unsupported descending Extended Linear Address Record (RECTYP = $04)
+64885	Unexpected end of file error.
+64886	Missing RECORD_MARK at file start error.
+64887	Checksum error.
+64888	Unknown error
+64889	Missing End Record.
+64890	Hex File Read Error.
+64891	Unknown
+64892	ESC hardware does not support this feature
+64893	ESC hardware does not support full Damped mode
+64894	ESC hardware does not support Damped mode
+64895	Remove checkmark here if programming by transmitter is not needed\\nto prevent the ESC from entering programming mode unintentionally.\\n(Remark: unchecking will also disable ESC throttle calibration mode)
+64896	The file being readed is not a valid "Portable Network Graphics" image because it contains an invalid header. This file may be corruped, try obtaining it again.
+64897	This "Portable Network Graphics" image is not supported or it might be invalid.\r\n(IHDR chunk is not the first)
+64898	This "Portable Network Graphics" image is not supported because either it's width or height exceeds the maximum size, which is 65535 pixels length.
+64899	There is no such palette entry.
+64900	This "Portable Network Graphics" image contains an unknown critical part which could not be decoded.
+64901	This "Portable Network Graphics" image is encoded with an unknown compression scheme which could not be decoded.
+64902	This "Portable Network Graphics" image uses an unknown interlace scheme which could not be decoded.
+64903	The chunks must be compatible to be assigned.
+64904	This "Portable Network Graphics" image is invalid because the decoder found an unexpected end of the file.
+64905	This "Portable Network Graphics" image contains no data.
+64906	Some operation could not be performed because the system is out of resources. Close some windows and try again.
+64907	This operation is not valid because the current image contains no valid header.
+64908	The new size provided for image resizing is invalid.
+64909	Cannot get device context of the window
+64910	Click here to save screenshot and text to file\\n...and copy text to clipboard as well.
+64911	Invalid hex-number
+64912	Could not obtain OLE control window handle
+64913	Link Properties
+64914	Cannot link to an invalid source.
+64915	Break link operation is not supported.
+64916	%s Properties
+64917	License information for %s is invalid
+64918	License information for %s not found. You cannot use this control in design mode
+64919	Unable to retrieve a pointer to a running object registered with OLE for %s/%s
+64920	Cannot change the size of a JPEG image
+64921	JPEG error #%d
+64922	JPEG Image File
+64923	This "Portable Network Graphics" image is not valid because it contains invalid pieces of data (crc error)
+64924	The "Portable Network Graphics" image could not be loaded because one of its main piece of data (ihdr) might be corrupted
+64925	This "Portable Network Graphics" image is invalid because it has missing image parts.
+64926	Could not decompress the image because it contains invalid compressed data.\r\n Description: 
+64927	The "Portable Network Graphics" image contains an invalid palette.
+64928	Windows 8
+64929	Windows Server 2012
+64930	Windows 8.1
+64931	Windows Server 2012 R2
+64932	GetOpenGLVersion: %s failed
+64933	Err
+64934	Unexpected end of sequence
+64935	Win32 error: %s (%u)%s%s
+64936	Library not found: %s
+64937	Function not found: %s.%s
+64938	OLE error %.8x
+64939	Method '%s' not supported by automation object
+64940	Variant does not reference an automation object
+64941	Dispatch methods do not support more than 64 parameters
+64942	DCOM not installed
+64943	OLE control activation failed
+64944	3rd-level cache: 1 MByte, 8-way set associative, 64 byte line size
+64945	3rd-level cache: 2 MByte, 8-way set associative, 64 byte line size
+64946	3rd-level cache: 4 MByte, 8-way set associative, 64 byte line size
+64947	3rd-level cache: 1.5 MByte, 12-way set associative, 64 byte line size
+64948	3rd-level cache: 3 MByte, 12-way set associative, 64 byte line size
+64949	3rd-level cache: 6 MByte, 12-way set associative, 64 byte line size
+64950	3rd-level cache: 2 MByte, 16-way set associative, 64 byte line size
+64951	3rd-level cache: 4 MByte, 16-way set associative, 64 byte line size
+64952	3rd-level cache: 8 MByte, 16-way set associative, 64 byte line size
+64953	3rd-level cache: 12 MByte, 24-way set associative, 64 byte line size
+64954	3rd-level cache: 18 MByte, 24-way set associative, 64 byte line size
+64955	3rd-level cache: 24 MByte, 24-way set associative, 64 byte line size
+64956	64-Byte Prefetching
+64957	128-Byte Prefetching
+64958	CPUID leaf 2 does not report cache descriptor information, use CPUID leaf 4 to query cache parameters
+64959	Unknown AMD (Model %d)
+64960	2nd-level cache: 512 KBytes, 8-way associative, 32 byte line size
+64961	2nd-level cache: 1 MBytes, 8-way associative, 32 byte line size
+64962	2nd-level cache: 2 MBytes, 8-way associative, 32 byte line size
+64963	2nd-level cache: 512 KByte, 4-way set associative, 64 byte line size
+64964	2nd-level cache: 1 MByte, 8-way set associative, 64 byte line size
+64965	Instruction TLB: 4 KByte pages, 4-way set associative, 128 entries
+64966	Instruction TLB: 2 MByte pages, 4-way, 8 entries or 4 MByte pages, 4-way, 4 entries
+64967	Instruction TLB: 4 KByte pages, 4-way set associative, 64 entries
+64968	Data TLB: 4 KByte pages, 4-way set associative, 128 entries
+64969	Data TLB1: 4 KByte pages, 4-way set associative, 256 entries
+64970	Data TLB1: 4 KByte pages, 4-way set associative, 64 entries
+64971	Data TLB: 4 KByte and 4 MByte pages, 4-way set associative, 8 entries
+64972	Shared 2nd-Level TLB: 4 KByte pages, 4-way associative, 512 entries
+64973	3rd-level cache: 512 KByte, 4-way set associative, 64 byte line size
+64974	3rd-level cache: 1 MByte, 4-way set associative, 64 byte line size
+64975	3rd-level cache: 2 MByte, 4-way set associative, 64 byte line size
+64976	1st-level data cache: 16 KBytes, 4-way set associative, 64 byte line size
+64977	1st-level data cache: 32 KBytes, 4-way set associative, 64 byte line size
+64978	Trace cache: 12 K-Ops, 8-way set associative
+64979	Trace cache: 16 K-Ops, 8-way set associative
+64980	Trace cache: 32 K-Ops, 8-way set associative
+64981	Trace cache: 64 K-Ops, 8-way set associative
+64982	Instruction TLB: 2M/4M pages, fully associative, 8 entries
+64983	2nd-level cache: 1 MBytes, 4-way set associative, 64 bytes line size
+64984	2nd-level cache: 128 KBytes, 8-way set associative, 64 bytes line size, 2 lines per sector
+64985	2nd-level cache: 256 KBytes, 8-way set associative, 64 bytes line size, 2 lines per sector
+64986	2nd-level cache: 512 KBytes, 8-way set associative, 64 bytes line size, 2 lines per sector
+64987	2nd-level cache: 1 MBytes, 8-way set associative, 64 bytes line size, 2 lines per sector
+64988	2nd-level cache: 2 MBytes, 8-way set associative, 64 byte line size
+64989	2nd-level cache: 512 KBytes, 2-way set associative, 64 byte line size
+64990	2nd-level cache: 512 KBytes, 8-way set associative, 64 byte line size
+64991	2nd-level cache: 256 KBytes, 8-way associative, 32 byte line size
+64992	3rd-level cache: 16MByte, 16-way set associative, 64 byte line size
+64993	2nd-level cache: 6MByte, 24-way set associative, 64 byte line size
+64994	Instruction TLB: 4 KByte pages, 32 Entries
+64995	Instruction TLB: 4 KByte and 2 MByte or 4 MByte pages, 64 Entries
+64996	Instruction TLB: 4 KByte and 2 MByte or 4 MByte pages, 128 Entries
+64997	Instruction TLB: 4 KByte and 2 MByte or 4 MByte pages, 256 Entries
+64998	Instruction TLB: 2-MByte or 4-MByte pages, fully associative, 7 entries
+64999	Data TLB0: 4 MByte pages, 4-way set associative, 16 entries
+65000	Data TLB0: 4 KByte pages, 4-way associative, 16 entries
+65001	Data TLB0: 4 KByte pages, fully associative, 16 entries
+65002	Data TLB0: 2 MByte or 4 MByte pages, 4-way set associative, 32 entries
+65003	Data TLB: 4 KByte and 4 MByte pages, 64 Entries
+65004	Data TLB: 4 KByte and 4 MByte pages, 128 Entries
+65005	Data TLB: 4 KByte and 4 MByte pages, 256 Entries
+65006	1st-level data cache: 16 KByte, 8-way set associative, 64 byte line size
+65007	1st-level data cache: 8 KBytes, 4-way set associative, 64 byte line size
+65008	2nd-level cache: 256 KBytes, 4-way set associative, sectored cache, 64-byte line size
+65009	2nd-level cache: 384 KBytes, 6-way set associative, sectored cache, 64-byte line size
+65010	2nd-level cache: 512 KBytes, 4-way set associative, sectored cache, 64-byte line size
+65011	No 2nd-level cache or, if processor contains a valid 2nd-level cache, no 3rd-level cache
+65012	2nd-level cache: 128 KBytes, 4-way set associative, 32 byte line size
+65013	2nd-level cache: 256 KBytes, 4-way set associative, 32 byte line size
+65014	2nd-level cache: 512 KBytes, 4-way set associative, 32 byte line size
+65015	2nd-level cache: 1 MBytes, 4-way set associative, 32 byte line size
+65016	2nd-level cache: 2 MBytes, 4-way set associative, 32 byte line size
+65017	3rd-level cache: 4 MBytes, 4-way set associative, 64 byte line size
+65018	3rd-level cache: 8 MBytes, 4-way set associative, 64 byte line size
+65019	3rd-level cache: 8 MByte, 8-way set associative, 64 byte line size
+65020	2nd-level cache: 4 MBytes, 16-way set associative, 64 byte line size
+65021	3rd-level cache: 6MByte, 12-way set associative, 64 byte line size
+65022	3rd-level cache: 8MByte, 16-way set associative, 64 byte line size
+65023	3rd-level cache: 12MByte, 12-way set associative, 64 byte line size
+65024	1st level instruction cache: 32 KBytes, 4-way set associative, 64 byte line size
+65025	1st level data cache: 8 KBytes, 2-way set associative, 32 byte line size
+65026	Instruction TLB: 4 MByte pages, 4-way set associative, 4 entries
+65027	1st level data cache: 16 KBytes, 4-way set associative, 32 byte line size
+65028	1st level data cache: 16 KBytes, 4-way set associative, 64 byte line size
+65029	1st level data cache: 24 KBytes, 6-way set associative, 64 byte line size
+65030	2nd level cache: 256 KBytes, 8-way set associative, 64 byte line size
+65031	3rd level cache: 512 KBytes, 4-way set associative, 64 byte line size, 2 lines per sector
+65032	3rd level cache: 1 MBytes, 8-way set associative, 64 byte line size, 2 lines per sector
+65033	3rd level cache: 2 MBytes, 8-way set associative, 64 byte line size, 2 lines per sector
+65034	3rd level cache: 4 MBytes, 8-way set associative, 64 byte line size, 2 lines per sector
+65035	1st level data cache: 32 KBytes, 8-way set associative, 64 byte line size
+65036	1st level instruction cache: 32 KBytes, 8-way set associative, 64 byte line size
+65037	2nd-level cache: 128 KBytes, 4-way set associative, sectored cache, 64-byte line size
+65038	2nd-level cache: 192 KBytes, 6-way set associative, sectored cache, 64-byte line size
+65039	2nd-level cache: 128 KBytes, 2-way set associative, sectored cache, 64-byte line size
+65040	Element size: 
+65041	Element type: 
+65042	Elements need clean up: 
+65043	Variant type: 
+65044	// Declaration for '%s' not supported.
+65045	Search string cannot be blank
+65046	Argument out of range
+65047	Failed to create mutex
+65048	Null descriptor
+65049	Instruction TLB: 4 KByte pages, 4-way set associative, 32 entries
+65050	Instruction TLB: 4 MByte pages, 4-way set associative, 2 entries
+65051	Data TLB: 4 KByte pages, 4-way set associative, 64 entries
+65052	Data TLB: 4 MByte pages, 4-way set associative, 8 entries
+65053	Data TLB1: 4 MByte pages, 4-way set associative, 32 entries
+65054	1st level instruction cache: 8 KBytes, 4-way set associative, 32 byte line size
+65055	1st level instruction cache: 16 KBytes, 4-way set associative, 32 byte line size
+65056	GUID: 
+65057	Type kind: 
+65058	Ordinal type: 
+65059	Min value: 
+65060	Max value: 
+65061	Names: 
+65062	Class name: 
+65063	Parent: 
+65064	Property count: 
+65065	Unit name: 
+65066	Based on: 
+65067	Float type: 
+65068	Method kind: 
+65069	Parameter count: 
+65070	Return type: 
+65071	Max length: 
+65072	ordinal=
+65073	True
+65074	False
+65075	???
+65076	Type info: %p
+65077	read
+65078	write
+65079	stored
+65080	field
+65081	static method
+65082	virtual method
+65083	index
+65084	default
+65085	Name: 
+65086	Type: 
+65087	Flags: 
+65088	Failed to get ANSI replacement character
+65089	Unable to create directory
+65090	File contains no version information
+65091	The file %s does not exist
+65092	Unable to open key "%s\\%s" for read
+65093	Unable to open key "%s\\%s" for write
+65094	Unable to open key "%s\\%s" and access value "%s"
+65095	"%s\\%s\\%s" is of wrong kind or size
+65096	"%s" does not match RootKey
+65097	Value %s out of range %s..%s.
+65098	Unknown identifier '%s'.
+65099	The property %s of type %s has no string value
+65100	var 
+65101	const 
+65102	array of 
+65103	out 
+65104	Button face
+65105	Button shadow
+65106	Dimmed text
+65107	Button text
+65108	Inactive window title bar text
+65109	Button highlight
+65110	Dark shadow 3D elements
+65111	Highlight 3D elements
+65112	Tooltip text
+65113	Tooltip background
+65114	Gradient Active Caption
+65115	Gradient Inactive Caption
+65116	Hot Light
+65117	Menu Bar
+65118	Menu Highlight
+65119	Your code tried to destroy the TJvPanel.ArrangeSettings objects leaving the panel in a broken state. Please fix your code by adding\r\n\r\n    if not ((Components[I] is TJvArrangeSettings) or\r\n            (Components[I] is TJvPanelHotTrackOptions)) then\r\n\r\nor by using the Controls[] array property if possible.
+65120	Lavender
+65121	Scrollbar
+65122	Desktop background
+65123	Active window title bar
+65124	Inactive window title bar
+65125	Menu background
+65126	Window background
+65127	Window frame
+65128	Menu text
+65129	Window text
+65130	Active window title bar text
+65131	Active window border
+65132	Inactive window border
+65133	Application workspace
+65134	Selection background
+65135	Selection text
+65136	Sea Green
+65137	Light Blue
+65138	Violet
+65139	Gray 40%
+65140	Pink
+65141	Gold
+65142	Bright Green
+65143	Turquoise
+65144	Plum
+65145	Gray 25%
+65146	Rose
+65147	Tan
+65148	Light Yellow
+65149	Light Green
+65150	Light Turquoise
+65151	Pale Blue
+65152	Sky blue
+65153	Cream
+65154	Medium gray
+65155	Brown
+65156	Olive Green
+65157	Dark Green
+65158	Dark Teal
+65159	Dark Blue
+65160	Indigo
+65161	Gray 80%
+65162	Dark Red
+65163	Orange
+65164	Dark Yellow
+65165	Blue Gray
+65166	Gray 50%
+65167	Light Orange
+65168	Maroon
+65169	Green
+65170	Olive green
+65171	Navy blue
+65172	Purple
+65173	Teal
+65174	Gray
+65175	Silver
+65176	Red
+65177	Lime
+65178	Yellow
+65179	Blue
+65180	Fuchsia
+65181	Aqua
+65182	White
+65183	Money green
+65184	You must specify a provider before setting the item
+65185	Item not found in the selected context
+65186	ViewList out of sync
+65187	Implementation of that class already exists
+65188	Expected collection
+65189	Missing ClassName property
+65190	Invalid class type
+65191	Device cannot be identified
+65192	Device cannot be opened
+65193	Cannot link to owner control
+65194	Rich Text Format (*.rtf)|*.rtf
+65195	Plain text (*.txt)|*.txt
+65196	Value must be between %0:g and %1:g
+65197	Invalid control selection
+65198	Unknown
+65199	Black
+65200	%s: cannot be created without a valid Owner
+65201	This value is read-only and cannot be changed.
+65202	%s file
+65203	A
+65204	C
+65205	D
+65206	R
+65207	H
+65208	S
+65209	Item cannot be deleted
+65210	A context with that name already exists
+65211	Cannot create a context without a context list owner
+65212	You must specify a provider before setting the context
+65213	Provider has no context named "%s"
+65214	Provider does not support contexts
+65215	The specified context is not part of the same provider
+65216	Cu&t
+65217	&Copy
+65218	&Paste
+65219	&Delete
+65220	Select &All
+65221	(item does not support the IJvDataItemText interface)
+65222	internal error
+65223	TJvAppIniFileStorage.ReadValue: Section undefined
+65224	The Default Root Value "%0:s" has been replaced with "%1:s".\r\nPlease change the value in the FileVersionInfo Project Properties.
+65225	Invalid type
+65226	Unknown base type for given set
+65227	Invalid path
+65228	'%s' is not a unique root path
+65229	Circular reference of storages
+65230	%s: Mutex Timeout
+65231	TJvCustomAppStorage.Synchronize:
+65232	No help found for context
+65233	No topic-based help system installed
+65234	Failed to clear tab control
+65235	Failed to delete tab at index %d
+65236	Failed to retrieve tab at index %d
+65237	Failed to get object at index %d
+65238	Failed to set tab "%s" at index %d
+65239	Failed to set object at index %d
+65240	MultiLine must be True when TabPosition is tpLeft or tpRight
+65241	Invalid index
+65242	Unable to insert an item
+65243	RichEdit line insertion error
+65244	Failed to Load Stream
+65245	Failed to Save Stream
+65246	%d is an invalid PageIndex value.  PageIndex must be between 0 and %d
+65247	&Undo
+65248	%s does not allow hiding
+65249	Error setting %s.Count
+65250	Listbox (%s) style must be virtual in order to set Count
+65251	Unable to save settings
+65252	Would you like to reset to the default Priority Schedule?
+65253	No ActionBand style unit present in the uses clause.\rYour application must include either XPStyleActnCtrls, StdStyleActnCtrls or a third party ActionBand style unit in its uses clause
+65254	ANSI
+65255	ASCII
+65256	Unicode
+65257	Big Endian Unicode
+65258	UTF-8
+65259	UTF-7
+65260	PageControl must first be assigned
+65261	Unable to find a Table of Contents
+65262	No help found for %s
+65263	No context-sensitive help installed
+65264	 (%dx%d)
+65265	Preview
+65266	Docked control must have a name
+65267	Error removing control from dock tree
+65268	 - Dock zone not found
+65269	 - Dock zone has no control
+65270	Error loading dock zone from the stream. Expecting version %d, but found %d.
+65271	Multiselect mode must be on for this feature
+65272	Cannot assign a subitem to an actionbar when one of it's parent's is already assigned to an actionbar
+65273	Item %s has subitems, delete anyway?
+65274	You are not allowed to delete this item
+65275	Item %s is not allowed to be moved
+65276	Expand
+65277	Error loading previously saved settings file: %s\rWould you like to delete it?
+65278	(No Name)
+65279	Circular references not allowed
+65280	Del
+65281	Shift+
+65282	Ctrl+
+65283	Alt+
+65284	(None)
+65285	Value must be between %d and %d
+65286	All
+65287	Unable to insert a line
+65288	Invalid clipboard format
+65289	Clipboard does not support Icons
+65290	Cannot open clipboard
+65291	Text exceeds memo capacity
+65292	Operation not supported on selected printer
+65293	There is no default printer currently selected
+65294	Menu '%s' is already being used by another form
+65295	Picture:
+65296	N&o to All
+65297	Yes to &All
+65298	BkSp
+65299	Tab
+65300	Esc
+65301	Enter
+65302	Space
+65303	PgUp
+65304	PgDn
+65305	End
+65306	Home
+65307	Left
+65308	Up
+65309	Right
+65310	Down
+65311	Ins
+65312	Bitmaps
+65313	Invalid input value
+65314	Invalid input value.  Use escape key to abandon changes
+65315	Warning
+65316	Error
+65317	Information
+65318	Confirm
+65319	&Yes
+65320	&No
+65321	OK
+65322	Cancel
+65323	&Help
+65324	&Abort
+65325	&Retry
+65326	&Ignore
+65327	&All
+65328	&Yes
+65329	&No
+65330	&Help
+65331	&Close
+65332	&Ignore
+65333	&Retry
+65334	Abort
+65335	&All
+65336	Cannot drag a form
+65337	An error returned from DDE  ($0%x)
+65338	DDE Error - conversation not established ($0%x)
+65339	Error occurred when DDE ran out of memory ($0%x)
+65340	Unable to connect DDE conversation
+65341	Metafiles
+65342	Enhanced Metafiles
+65343	Icons
+65344	Cannot make a visible window modal
+65345	Scrollbar property out of range
+65346	%s property out of range
+65347	Menu index out of range
+65348	Menu inserted twice
+65349	Sub-menu is not in menu
+65350	Not enough timers available
+65351	Printer is not currently printing
+65352	Printing in progress
+65353	Printer selected is not valid
+65354	%s on %s
+65355	GroupIndex cannot be less than a previous menu item's GroupIndex
+65356	Cannot create form. No MDI forms are currently active
+65357	A control cannot have itself as its parent
+65358	OK
+65359	Cancel
+65360	Unsupported clipboard format
+65361	Out of system resources
+65362	Canvas does not allow drawing
+65363	Invalid image size
+65364	Invalid ImageList
+65365	Unable to Replace Image
+65366	Invalid ImageList Index
+65367	Failed to read ImageList data from stream
+65368	Failed to write ImageList data to stream
+65369	Error creating window device context
+65370	Error creating window class
+65371	Cannot focus a disabled or invisible window
+65372	Control '%s' has no parent window
+65373	Parent given is not a parent of '%s'
+65374	Cannot hide an MDI Child Form
+65375	Cannot change Visible in OnShow or OnHide
+65376	%s not in a class registration group
+65377	Property %s does not exist
+65378	Stream write error
+65379	Thread creation error: %s
+65380	Thread Error: %s (%d)
+65381	Tab position incompatible with current tab style
+65382	Tab style incompatible with current tab position
+65383	Bitmap image is not valid
+65384	Icon image is not valid
+65385	Metafile is not valid
+65386	Invalid pixel format
+65387	Invalid image
+65388	Scan line index out of range
+65389	Cannot change the size of an icon
+65390	Invalid operation on TOleGraphic
+65391	Unknown picture file extension (.%s)
+65392	Invalid property value
+65393	Invalid data type for '%s'
+65394	Cannot insert or delete rows from grid
+65395	List capacity out of bounds (%d)
+65396	List count out of bounds (%d)
+65397	List index out of bounds (%d)
+65398	Out of memory while expanding memory stream
+65399	Error reading %s%s%s: %s
+65400	Stream read error
+65401	Property is read-only
+65402	Failed to get data for '%s'
+65403	Failed to set data for '%s'
+65404	Resource %s not found
+65405	%s.Seek not implemented
+65406	Operation not allowed on sorted list
+65407	Too many rows or columns deleted
+65408	List does not allow duplicates ($0%x)
+65409	A component named %s already exists
+65410	String list does not allow duplicates
+65411	Cannot create file "%s". %s
+65412	Fixed column count must be less than column count
+65413	Fixed row count must be less than row count
+65414	Cannot open file "%s". %s
+65415	Grid too large for operation
+65416	Grid index out of range
+65417	Unable to write to %s
+65418	Invalid stream format
+65419	''%s'' is not a valid component name
+65420	Invalid property value
+65421	Invalid property element: %s
+65422	Invalid property path
+65423	Invalid property type: %s
+65424	Fri
+65425	Sat
+65426	Sunday
+65427	Monday
+65428	Tuesday
+65429	Wednesday
+65430	Thursday
+65431	Friday
+65432	Saturday
+65433	Ancestor for '%s' not found
+65434	Cannot assign a %s to a %s
+65435	Bits index out of range
+65436	Can't write to a read-only resource stream
+65437	CheckSynchronize called from thread $%x, which is NOT the main thread
+65438	Class %s not found
+65439	A class named %s already exists
+65440	February
+65441	March
+65442	April
+65443	May
+65444	June
+65445	July
+65446	August
+65447	September
+65448	October
+65449	November
+65450	December
+65451	Sun
+65452	Mon
+65453	Tue
+65454	Wed
+65455	Thu
+65456	Access violation at address %p in module '%s'. %s of address %p
+65457	System Error.  Code: %d.\r\n%s
+65458	A call to an OS function failed
+65459	Jan
+65460	Feb
+65461	Mar
+65462	Apr
+65463	May
+65464	Jun
+65465	Jul
+65466	Aug
+65467	Sep
+65468	Oct
+65469	Nov
+65470	Dec
+65471	January
+65472	Custom variant type (%s%.4x) already used by %s
+65473	Custom variant type (%s%.4x) is not usable
+65474	Too many custom variant types have been registered
+65475	Could not convert variant of type (%s) into type (%s)
+65476	Overflow while converting variant of type (%s) into type (%s)
+65477	Variant overflow
+65478	Invalid argument
+65479	Invalid variant type
+65480	Operation not supported
+65481	Unexpected variant error
+65482	External exception %x
+65483	Assertion failed
+65484	Interface not supported
+65485	Exception in safecall method
+65486	%s (%s, line %d)
+65487	Abstract Error
+65488	Exception %s in module %s at %p.\r\n%s%s\r\n
+65489	Application Error
+65490	Format '%s' invalid or incompatible with argument
+65491	No argument for format '%s'
+65492	Variant method calls not supported
+65493	Read
+65494	Write
+65495	Format string too long
+65496	Error creating variant or safe array
+65497	Variant or safe array index out of bounds
+65498	Variant or safe array is locked
+65499	Invalid variant type conversion
+65500	Invalid variant operation
+65501	Invalid NULL variant operation
+65502	Invalid variant operation (%s%.8x)\n%s
+65503	Custom variant type (%s%.4x) is out of range
+65504	Invalid numeric input
+65505	Division by zero
+65506	Range check error
+65507	Integer overflow
+65508	Invalid floating point operation
+65509	Floating point division by zero
+65510	Floating point overflow
+65511	Floating point underflow
+65512	Invalid pointer operation
+65513	Invalid class typecast
+65514	Access violation at address %p. %s of address %p
+65515	Access violation
+65516	Stack overflow
+65517	Control-C hit
+65518	Privileged instruction
+65519	Operation aborted
+65520	'%s' is not a valid integer value
+65521	'%s' is not a valid floating point value
+65522	'%s' is not a valid date
+65523	'%s' is not a valid time
+65524	'%s' is not a valid date and time
+65525	'%s' is not a valid boolean value
+65526	Invalid argument to time encode
+65527	Invalid argument to date encode
+65528	Out of memory
+65529	I/O error %d
+65530	File not found
+65531	Invalid filename
+65532	Too many open files
+65533	File access denied
+65534	Read beyond end of file
+65535	Disk full
