@@ -214,6 +214,18 @@ enum AppFolders {
         set { UserDefaults.standard.set(newValue?.path, forKey: "HexFileFolder") }
     }
 
+    /// FUN_00582B3C(i) / FUN_00582BB0(i, …): folder table of the file dialogs (0 = hex files, 1 = memory files);
+    /// an empty entry when the folder does not exist.
+    static func folder(_ i: Int) -> URL? {
+        if i == 0 { return hexFolder }
+        guard let p = UserDefaults.standard.string(forKey: "Folder\(i)"), FileManager.default.fileExists(atPath: p) else { return nil }
+        return URL(fileURLWithPath: p)
+    }
+
+    static func setFolder(_ i: Int, _ url: URL?) {
+        if i == 0 { hexFolder = url } else { UserDefaults.standard.set(url?.path, forKey: "Folder\(i)") }
+    }
+
     /// Writable folder for screenshots, logs and settings files (Windows: next to the exe).
     static var userFolder: URL {
         let d = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("BLHeliSuite", isDirectory: true)

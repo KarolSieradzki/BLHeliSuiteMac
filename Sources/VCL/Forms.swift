@@ -561,8 +561,18 @@ public final class Application: NSObject {
         return true
     }
 
+    /// Forms.GetHint: the hint of the control, else of the nearest parent with a hint.
+    func getHint(_ c: TControl) -> String {
+        var v: NSView? = c
+        while let x = v {
+            if let t = x as? TControl, !t.hint.isEmpty { return t.hint }
+            v = x.superview
+        }
+        return ""
+    }
+
     func hintMouseEntered(_ c: TControl) {
-        guard !c.hint.isEmpty, effectiveShowHint(c) else { return }
+        guard !getHint(c).isEmpty, effectiveShowHint(c) else { return }
         hintControl = c
         hintTimer?.invalidate()
         hintTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] _ in self?.showHint() }
@@ -585,7 +595,8 @@ public final class Application: NSObject {
 
     private func showHint() {
         guard let c = hintControl, let w = c.window, w.isVisible, !c.isHiddenOrHasHiddenAncestor else { return }
-        let text = c.hint.components(separatedBy: "|").first ?? c.hint
+        let h = getHint(c)
+        let text = h.components(separatedBy: "|").first ?? h
         guard !text.isEmpty else { return }
         if hintWindow == nil { hintWindow = BalloonHint() }
         let mouse = NSEvent.mouseLocation

@@ -218,7 +218,7 @@ open class TControl: NSView, VCLComponent {
     public var caption: String = "" {
         didSet { if caption != oldValue { captionChanged() } }
     }
-    public var text: String {
+    open var text: String {
         get { caption }
         set { caption = newValue }
     }

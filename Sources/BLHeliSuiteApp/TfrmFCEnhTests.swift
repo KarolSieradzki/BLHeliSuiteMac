@@ -53,7 +53,7 @@ import BLHeliCore
 extension TfraAlternateSpeedTest {
     var boxes: [TCheckBox] { [cbxMotor1, cbxMotor2, cbxMotor3, cbxMotor4, cbxMotor5, cbxMotor6, cbxMotor7, cbxMotor8] }
     var spins: [(String, TSpinEdit)] {
-        [("RampToPPM", sedRampToPPM), ("WaitAtRamp", sedWaitAtRamp), ("WaitStart", sedWaitStart), ("Step1ToPPM", sedStep1ToPPM),
+        [("WaitBeforeStart", sedWaitStart), ("RampToPPM", sedRampToPPM), ("WaitAtRamp", sedWaitAtRamp), ("Step1ToPPM", sedStep1ToPPM),
          ("Step1SettleTime", sedStep1SettleTime), ("Step2ToPPM", sedStep2ToPPM), ("Step2SettleTime", sedStep2SettleTime), ("LoopCount", sedLoopCount)]
     }
 
@@ -87,6 +87,9 @@ extension TfraAlternateSpeedTest {
     /// FUN_0064A18C: called when the form is activated.
     func prepare(_ t: TfraCFMotorTest) {
         test = t
+        // TfraAlternateSpeedTest.Create (0x649EBC)
+        for (i, b) in boxes.enumerated() { b.hint = DFormat("Click here to activate or deactivate Motor #%d for testing.", [i + 1]) }
+        swtTest.hint = NL("Use this switch to start and stop a test\\n\\nAlso any key press will abort a runnig test")
         for (i, b) in boxes.enumerated() {
             b.enabled = i < t.motorCount
             b.checked = i < t.motorCount
@@ -189,10 +192,13 @@ extension TfraAlternateSpeedTest {
 
     @objc func aevSpeedTestMessage(_ sender: TObject) { if running { stop() } }
 
+    /// FUN_006493F4: stores the shown settings under the name of the list (overwrite only after confirmation).
     @objc func btnStoreSettingsClick(_ sender: TObject) {
         let name = cbxSettings.text_.trimmingCharacters(in: .whitespaces)
         guard !name.isEmpty else { return }
         var s = loadSettings()
+        if s[name] != nil,
+           MsgDlg.show(DFormat("\"%s\" already exists. Overwrite?", [name]), .mtConfirmation, [.mbOK, .mbCancel]) != mrOk { return }
         var v: [String: Int] = [:]
         for (n, e) in spins { v[n] = e.intValue }
         for (i, b) in boxes.enumerated() { v["Motor\(i + 1)"] = b.checked ? 1 : 0 }
@@ -202,15 +208,22 @@ extension TfraAlternateSpeedTest {
         cbxSettings.text_ = name
     }
 
+    /// FUN_006497AC
     @objc func btnRestoreSettingsClick(_ sender: TObject) {
-        guard let v = loadSettings()[cbxSettings.text_] else { return }
+        guard let v = loadSettings()[cbxSettings.text_] else {
+            MsgDlg.error(DFormat("Section: \"%s\" not found.", [cbxSettings.text_]))
+            return
+        }
         for (n, e) in spins { if let x = v[n] { e.value = Double(x) } }
         for (i, b) in boxes.enumerated() where b.enabled { if let x = v["Motor\(i + 1)"] { b.checked = x != 0 } }
         sedWaitStartChange(self)
     }
 
+    /// FUN_006492C4
     @objc func btnDeleteSettingsClick(_ sender: TObject) {
         var s = loadSettings()
+        guard s[cbxSettings.text_] != nil,
+              MsgDlg.show(DFormat("Delete \"%s\"?", [cbxSettings.text_]), .mtConfirmation, [.mbOK, .mbCancel]) == mrOk else { return }
         s[cbxSettings.text_] = nil
         saveSettings(s)
         cbxSettings.items = s.keys.sorted()

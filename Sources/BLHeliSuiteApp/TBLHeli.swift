@@ -305,6 +305,13 @@ extension TBLHeli {
                 if (p == .ppmMinThrottle || p == .ppmMaxThrottle || p == .ppmCenterThrottle) && !syncThrottle { continue }
                 if p == .becVoltageHigh && dstLayout?.becHV != srcLayout?.becHV { continue }
                 if p == .ledControl && dstLayout?.leds != srcLayout?.leds { continue }
+                if p == .pwmFrequency, let d = dstLayout, Int(d.damped) > value(.layoutRevision) {
+                    let lr = src.value(.layoutRevision), f = src.value(.pwmFrequency)
+                    if (lr < 0x0B && f > 2) || (lr > 10 && f > 3) {
+                        errorText = NL("Target is not able to run in damped mode.\\nPWM frequency setting will not be applied.")
+                        continue
+                    }
+                }
                 setValue(p, src.value(p))
             }
         } else if translate {

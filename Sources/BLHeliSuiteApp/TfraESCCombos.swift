@@ -597,7 +597,17 @@ import BLHeliCore
     func updateMotorGearSetup() {
         let show = exists(0x12) && bl.mode == 0
         grb_MotorGearSetup.visible = show
-        if show { grb_MotorGearSetup.caption = "Motor / Gear Setup" }
+        if show {
+            grb_MotorGearSetup.caption = "Motor / Gear Setup"
+            grb_MotorGearSetup.hint = NL("Set specific LipoCells + Motor KV + Pole Count + Pinion teeth + Main Gear teeth here.\\nThis serves for illustration only and has no influence on parameters stored in the ESC.")
+            cbxMotorSetups.hint = NL("Load different setups from the list, or define a new name.")
+            sedLipo_s.hint = NL("Enter specific Lipo Cell-Count here")
+            sedMotorKV.hint = NL("Enter Motor-specific KV Value here (rpm/Volt)")
+            sedMotorPole.hint = NL("Enter Motor Pole-Count here")
+            sedPinionTeeth.hint = NL("Enter Motor Pinion Teeth-Count here")
+            sedMainGearTeeth.hint = NL("Enter Main Gear Teeth-Count here")
+            sedMotorComp.hint = NL("Enter compensation factor (%% Value) for Lipo\\nvoltage drop and Motor KV loss under load.\\nDefault is 81%%")
+        }
     }
 
     func applyMotorSetup() {

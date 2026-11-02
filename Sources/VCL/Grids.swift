@@ -44,7 +44,7 @@ public final class TCanvas: NSObject {
     public func textRect(_ r: NSRect, _ x: CGFloat, _ y: CGFloat, _ s: String) {
         if !brushClear { Draw.fill(r, Colors.ns(brushColor)) }
         NSGraphicsContext.saveGraphicsState()
-        NSBezierPath(rect: r).setClip()
+        NSBezierPath.clip(r)
         TextDraw.draw(s, in: NSRect(x: x, y: y, width: max(0, r.maxX - x) + 200, height: r.maxY - y), font: font.nsFont,
                       color: Colors.ns(font.color), accel: false)
         NSGraphicsContext.restoreGraphicsState()
@@ -257,7 +257,7 @@ open class TDrawGrid: TControl {
         Draw.fill(bounds, nsColor)
         let area = inner
         NSGraphicsContext.saveGraphicsState()
-        NSBezierPath(rect: area).setClip()
+        NSBezierPath.clip(area)
         var y = area.minY
         for r in visibleRowsList() {
             if y > area.maxY { break }

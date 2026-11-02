@@ -96,6 +96,12 @@ open class TEdit: TControl, NSTextFieldDelegate {
 
     var loadingEdit = true
 
+    /// TCustomEdit.Text: the content of the field (typed or set).
+    open override var text: String {
+        get { textValue }
+        set { caption = newValue; textValue = newValue }
+    }
+
     open override func captionChanged() { textValue = caption }
 
     open override func fontChanged() {

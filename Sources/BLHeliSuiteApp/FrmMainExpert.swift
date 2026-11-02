@@ -7,50 +7,97 @@ import BLHeliCore
 extension TfrmBLHeliSuiteMain {
     // MARK: - address fields (edtGetStartAddressChange 0x664E08 …)
 
-    /// Hex ("0x1A00", "$1A00") or decimal value of an address field.
-    func parseNumber(_ s: String) -> Int? {
-        var t = s.trimmingCharacters(in: .whitespaces)
-        if let r = t.range(of: " ") { t = String(t[..<r.lowerBound]) }
-        if t.lowercased().hasPrefix("0x") { return Int(t.dropFirst(2), radix: 16) }
-        if t.hasPrefix("$") { return Int(t.dropFirst(), radix: 16) }
-        return Int(t)
+    /// FUN_0065DA7C + FUN_0065DBCC: value of an address field. A leading "$" or "0x" marks a hex number; the prefix
+    /// is remembered for the texts written back (empty for decimal numbers). Invalid input raises EConvertError in
+    /// the original – shown as error message here.
+    func addressValue(_ text: String, _ prefix: inout String) -> Int? {
+        var s = text
+        guard !s.isEmpty else { return 0 }
+        var hex = false
+        let c = Array(s)
+        if c[0] == "$" {
+            s.removeFirst(); prefix = "$"; hex = true
+        } else if c[0] == "0", c.count > 1, c[1] == "x" || c[1] == "X" {
+            s.removeFirst(2); prefix = "0x"; hex = true
+        } else {
+            prefix = ""
+        }
+        guard !s.isEmpty else { return 0 }
+        guard hex else {
+            guard let v = Int(s.trimmingCharacters(in: .whitespaces)) else {
+                MsgDlg.error(DFormat("'%s' is not a valid integer value", [s]))
+                return nil
+            }
+            return v
+        }
+        var v = 0
+        for ch in s.uppercased().unicodeScalars {
+            switch ch.value {
+            case 0x30...0x39: v = v * 16 + Int(ch.value) - 0x30
+            case 0x41...0x46: v = v * 16 + Int(ch.value) - 0x37
+            default:
+                MsgDlg.error(NL("Invalid hex-number"))
+                return nil
+            }
+        }
+        return v
     }
 
-    var memIsFlash: Bool { rgpMemType.itemIndex == 0 }
+    /// Text of an address field: decimal, or prefix + IntToHex(v, 2).
+    func addressText(_ v: Int, _ prefix: String) -> String { prefix.isEmpty ? String(v) : prefix + String(format: "%02X", v) }
 
-    var readStart: Int { parseNumber(edtGetStartAddress.text) ?? 0 }
-    var readLength: Int { parseNumber(edtGetLength.text) ?? 0 }
+    func addressHint(_ title: String, _ v: Int) -> String { NL(title) + " Hex: 0x" + String(format: "%02X", v) + "  Dec: " + String(v) }
 
+    /// edtGetStartAddressChange (0x664E08).
     @objc func edtGetStartAddressChange(_ sender: TObject) {
-        guard !addressUpdating, let a = parseNumber(edtGetStartAddress.text), let stop = parseNumber(edtGetStopAdress.text) else { return }
-        addressUpdating = true
-        edtGetLength.text = String(format: "0x%X", max(0, stop - a + 1))
-        addressUpdating = false
+        let m = expertMem
+        guard let v = addressValue(edtGetStartAddress.text, &m.startPrefix) else { return }
+        edtGetStartAddress.hint = addressHint("Start:", v)
+        m.start = v
+        if m.stop < v {
+            m.stop = v
+            m.length = v - m.start + 1
+            edtGetStopAdress.text = addressText(m.stop, m.startPrefix)
+        } else {
+            m.length = m.stop - v + 1
+            edtGetLength.text = addressText(m.length, m.lengthPrefix)
+        }
     }
 
+    /// edtGetStopAdressChange (0x664FD8) – the hint says "Start:" in the original too.
     @objc func edtGetStopAdressChange(_ sender: TObject) {
-        guard !addressUpdating, let stop = parseNumber(edtGetStopAdress.text) else { return }
-        let a = readStart
-        guard stop >= a else { return }
-        addressUpdating = true
-        edtGetLength.text = String(format: "0x%X", stop - a + 1)
-        addressUpdating = false
+        let m = expertMem
+        guard !m.updating, let v = addressValue(edtGetStopAdress.text, &m.stopPrefix) else { return }
+        edtGetStopAdress.hint = addressHint("Start:", v)
+        m.stop = v
+        if m.start <= v {
+            m.length = v - m.start + 1
+            m.updating = true
+            edtGetLength.text = addressText(m.length, m.lengthPrefix)
+            m.updating = false
+        }
     }
 
+    /// edtGetLengthChange (0x67A850).
     @objc func edtGetLengthChange(_ sender: TObject) {
-        guard !addressUpdating, let n = parseNumber(edtGetLength.text), n > 0 else { return }
-        addressUpdating = true
-        edtGetStopAdress.text = String(format: "0x%X", readStart + n - 1)
-        addressUpdating = false
+        let m = expertMem
+        guard !m.updating, let v = addressValue(edtGetLength.text, &m.lengthPrefix) else { return }
+        edtGetLength.hint = addressHint("Length:", v)
+        m.length = v
+        if v > 0 {
+            m.stop = m.start + v - 1
+            m.updating = true
+            edtGetStopAdress.text = addressText(m.stop, m.startPrefix)
+            m.updating = false
+        }
     }
 
-    /// edtSetStartAddressChange (0x664B40): decimal and hex value as hint.
+    /// edtSetStartAddressChange (0x664B40).
     @objc func edtSetStartAddressChange(_ sender: TObject) {
-        guard let a = parseNumber(edtSetStartAddress.text) else { edtSetStartAddress.hint = ""; return }
-        edtSetStartAddress.hint = edtSetStartAddress.text + " Dec: " + String(a) + String(format: " Hex: 0x%02X", a)
+        guard let v = addressValue(edtSetStartAddress.text, &expertMem.setStartPrefix) else { return }
+        edtSetStartAddress.hint = addressHint("Start:", v)
     }
 
-    /// edtAdressKeyPress (0x664C2C): digits, hex letters, "x", "$", backspace and return.
     /// edtAdressKeyPress (0x664C2C): decimal numbers, hex after a leading "$" or "0x" (letters upper case).
     @objc func edtAdressKeyPress(_ sender: TObject, _ args: TKeyArgs) {
         let c = args.key
@@ -71,31 +118,31 @@ extension TfrmBLHeliSuiteMain {
         }
     }
 
-    /// edtSetMemKeyPress (0x664DC4): hex digits (upper case), separators.
+    /// edtSetMemKeyPress (0x664DC4): hex digits (letters upper case), backspace and return.
     @objc func edtSetMemKeyPress(_ sender: TObject, _ args: TKeyArgs) {
         let c = args.key
-        if c == "\u{8}" || c == "\r" || c == " " || c == "," { return }
-        if c.isHexDigit { args.key = Character(c.uppercased()); return }
+        if c == "\u{8}" || c == "\r" { return }
+        if c.isASCII && c.isHexDigit { args.key = Character(c.uppercased()); return }
         args.key = "\0"
     }
 
     /// rgpMemTypeClick (0x6783D0): default ranges of flash / EEPROM.
     @objc func rgpMemTypeClick(_ sender: TObject) {
-        addressUpdating = true
-        if rgpMemType.itemIndex == 0 {
+        let i = rgpMemType.itemIndex
+        if i == 0 {
             edtGetStartAddress.text = "0x00"
             edtGetLength.text = "0x2000"
             edtGetStopAdress.text = "0x1FFF"
             edtSetStartAddress.text = "0x00"
-            cbxPersistFlashWriteMem.enabled = true
-        } else if rgpMemType.itemIndex == 1 {
+            cbxPersistFlashWriteMem.checked = true
+        }
+        if i == 1 {
             edtGetStartAddress.text = "0x00"
             edtGetLength.text = "0x200"
             edtGetStopAdress.text = "0x1FF"
             edtSetStartAddress.text = "0x00"
-            cbxPersistFlashWriteMem.enabled = false
+            cbxPersistFlashWriteMem.checked = false
         }
-        addressUpdating = false
     }
 
     // MARK: - memory access
@@ -108,132 +155,218 @@ extension TfrmBLHeliSuiteMain {
         return programmer != nil && targetDevice != nil
     }
 
+    /// FUN_0066F570: flash page size of the target.
+    var targetPageSize: Int { max(1, targetDevice?.pageSize ?? (intf.brand == 1 ? 0x200 : 0x40)) }
+    /// FUN_0066F4C4: EEPROM size of the target.
+    var targetEEpromSize: Int { max(1, targetDevice?.eepromSize ?? 0x200) }
+    /// FUN_0066F36C: flash size of the target.
+    var targetFlashSize: Int { targetDevice?.flashSize ?? 0x2000 }
+
+    /// FUN_0067953C: reads flash memory of the target.
+    func readTargetFlash(_ address: Int, _ count: Int) -> [UInt8]? {
+        guard let p = programmer else { return nil }
+        Led_Read.isOn = true
+        defer { Led_Read.isOn = false }
+        return try? p.readFlash(address: address, count: count, progress: nil)
+    }
+
+    /// FUN_00679464: reads EEPROM memory (Atmel interfaces only).
+    func readTargetEEprom(_ address: Int, _ count: Int) -> [UInt8]? {
+        guard intf.brand == 2, let p = programmer else { return nil }
+        Led_Read.isOn = true
+        defer { Led_Read.isOn = false }
+        return try? p.readEEPROM(address: address, count: count)
+    }
+
+    /// FUN_0067ACD4: writes flash memory; nil = aborted ("Nothing to write").
+    func writeTargetFlash(_ data: [UInt8], _ address: Int) -> Bool? {
+        guard !data.isEmpty else {
+            MsgDlg.error(NL("Nothing to write (memory size = 0)."))
+            return nil
+        }
+        guard let p = programmer else { return false }
+        Screen.busy = true
+        Led_Write.isOn = true
+        defer { Led_Write.isOn = false; Screen.busy = false }
+        let t0 = Date()
+        let ok = (try? p.writeFlash(address: address, data: data, progress: nil)) != nil
+        TfrmLogForm.addBlue("Time elapsed (s): " + String(format: "%.2f", Date().timeIntervalSince(t0)))
+        return ok
+    }
+
+    /// FUN_0067A9D0: writes EEPROM memory (Atmel interfaces only); nil = aborted.
+    func writeTargetEEprom(_ data: [UInt8], _ address: Int) -> Bool? {
+        if data.count > targetEEpromSize {
+            MsgDlg.error(DFormat(NL("The size of the EEprom Hex you picked exceeds the available target space\\nAvailable space: %d Bytes.\\nRequired space: %d Bytes."),
+                                 [targetEEpromSize, data.count]))
+            return nil
+        }
+        guard !data.isEmpty else {
+            MsgDlg.error(NL("Nothing to write (memory size = 0)."))
+            return nil
+        }
+        guard intf.brand == 2, let p = programmer else { return false }
+        Screen.busy = true
+        Led_Write.isOn = true
+        defer { Led_Write.isOn = false; Screen.busy = false }
+        let t0 = Date()
+        let ok = (try? p.writeEEPROM(address: address, data: data, progress: nil)) != nil
+        TfrmLogForm.addBlue("Time elapsed (s): " + String(format: "%.2f", Date().timeIntervalSince(t0)))
+        return ok
+    }
+
+    /// FUN_006652E4: erases the flash pages first…last (SiLabs interfaces).
+    @discardableResult
+    func erasePages(_ first: Int, _ last: Int) -> Bool {
+        Screen.busy = true
+        defer { Screen.busy = false }
+        guard let p = programmer, intf.brand == 1 else { return false }
+        var ok = true
+        for page in (first <= last ? Array(first...last) : Array((last...first).reversed())) {
+            if (try? p.erasePage(address: targetPageSize * page)) == nil { ok = false }
+        }
+        return ok
+    }
+
+    /// actReadMemExecute (0x67C028).
     @objc func actReadMemExecute(_ sender: TObject) {
-        TfrmLogForm.addBlue(NL("Read Memory:"))
+        TfrmLogForm.addNavy2(NL("Expert: read memory"))
         TfrmLogForm.indent(1)
         var data: [UInt8]?
-        if connectForExpertTool(), let p = programmer {
-            Screen.busy = true
-            Led_Read.isOn = true
-            data = try? memIsFlash ? p.readFlash(address: readStart, count: readLength, progress: nil)
-                                    : p.readEEPROM(address: readStart, count: readLength)
-            Led_Read.isOn = false
-            Screen.busy = false
+        let m = expertMem
+        if connectForExpertTool() {
+            data = rgpMemType.itemIndex == 0 ? readTargetFlash(m.start, m.length) : readTargetEEprom(m.start, m.length)
+            if data == nil { MsgDlg.error(NL("Read failed!")) }
         }
         TfrmLogForm.indent(-1)
         TfrmLogForm.result(data != nil)
-        if let d = data {
-            var img = MemoryImage()
-            img.write(d, at: readStart)
-            TfrmMemoView.show(img, title: escText + (memIsFlash ? " Flash" : " EEprom"), fileName: nil)
-        } else {
-            MsgDlg.error(DFormat(NL(Res.couldNotConnectESC), [escText]))
-        }
-    }
-
-    /// Hex bytes of edtSetMem ("01 02 0A", "01,02").
-    var bytesToWrite: [UInt8]? {
-        let parts = edtSetMem.text.split(whereSeparator: { $0 == " " || $0 == "," }).map(String.init)
-        var out: [UInt8] = []
-        for p in parts {
-            var t = p
-            if t.lowercased().hasPrefix("0x") { t.removeFirst(2) }
-            if t.count > 2 {
-                var i = t.startIndex
-                while i < t.endIndex {
-                    let j = t.index(i, offsetBy: 2, limitedBy: t.endIndex) ?? t.endIndex
-                    guard let b = UInt8(t[i..<j], radix: 16) else { return nil }
-                    out.append(b)
-                    i = j
-                }
-            } else {
-                guard let b = UInt8(t, radix: 16) else { return nil }
-                out.append(b)
-            }
-        }
-        return out.isEmpty ? nil : out
+        if let d = data { TfrmMemoView.execute(start: m.start, mem: d) }   // FUN_0067D108
     }
 
     /// actWriteMemExecute (0x67C18C).
     @objc func actWriteMemExecute(_ sender: TObject) {
-        guard let bytes = bytesToWrite, let addr = parseNumber(edtSetStartAddress.text) else {
-            MsgDlg.error(NL("Invalid Parameter"))
-            return
-        }
-        guard connectForExpertTool(), let p = programmer, let dev = targetDevice else { return }
-        let q = DFormat(NL("Write %d byte(s) to %s address 0x%X of %s?"), [bytes.count, memIsFlash ? "Flash" : "EEprom", addr, escText])
-        guard MsgDlg.show(q, .mtConfirmation, [.mbYes, .mbNo]) == mrYes else { return }
-        Screen.busy = true
-        Led_Write.isOn = true
-        defer { Led_Write.isOn = false; Screen.busy = false }
-        do {
-            if memIsFlash {
-                if cbxPersistFlashWriteMem.checked {
-                    // keep the rest of the page: read, erase, write the whole page
-                    let ps = dev.pageSize
-                    let first = (addr / ps) * ps
-                    let last = ((addr + bytes.count - 1) / ps) * ps
-                    var page = first
-                    while page <= last {
-                        var d = try p.readFlash(address: page, count: ps, progress: nil)
-                        for (i, b) in bytes.enumerated() where addr + i >= page && addr + i < page + ps { d[addr + i - page] = b }
-                        try p.erasePage(address: page)
-                        try p.writeFlash(address: page, data: d, progress: nil)
-                        page += ps
-                    }
-                } else {
-                    try p.writeFlash(address: addr, data: bytes, progress: nil)
-                }
-            } else {
-                try p.writeEEPROM(address: addr, data: bytes, progress: nil)
+        TfrmLogForm.addNavy2(NL("Expert: write memory"))
+        TfrmLogForm.indent(1)
+        var ok: Bool? = false
+        defer {
+            TfrmLogForm.indent(-1)
+            if let r = ok {
+                if r { MsgDlg.show(NL("Memory write operation succeeded."), .mtInformation, [.mbOK]) }
+                else { MsgDlg.error(NL("Memory write operation failed.")) }
             }
-            TfrmLogForm.result(true)
-        } catch {
-            TfrmLogForm.result(false)
-            MsgDlg.error(error.localizedDescription)
+        }
+        guard connectForExpertTool() else { return }
+        let memType = rgpMemType.itemIndex
+        // hex string → bytes (pairs of hex digits, a single digit gets a leading "0")
+        var s = edtSetMem.text.uppercased().trimmingCharacters(in: .whitespaces)
+        if s.count == 1 { s = "0" + s }
+        let chars = Array(s.unicodeScalars)
+        var bytes: [UInt8] = []
+        var acc = 0
+        var i = 0
+        while chars.count >= i + 2 {
+            for k in 0..<2 {
+                let ch = chars[i + k].value
+                switch ch {
+                case 0x30...0x39: acc = acc * 16 + Int(ch) - 0x30
+                case 0x41...0x46: acc = acc * 16 + Int(ch) - 0x37
+                default:
+                    MsgDlg.error(NL("Invalid HEX String"))
+                    ok = nil   // Abort
+                    return
+                }
+            }
+            bytes.append(UInt8(acc & 0xFF))
+            i += 2
+        }
+        guard var addr = addressValue(edtSetStartAddress.text, &expertMem.setStartPrefix) else { ok = nil; return }
+        let count = bytes.count
+        var data = bytes
+        if cbxPersistFlashWriteMem.checked {
+            // keep the rest of the touched pages: read them, overlay the bytes, (SiLabs: erase,) write back
+            var base = addr, offset = 0
+            var read: [UInt8]?
+            var good = false
+            if memType == 0 {
+                let ps = targetPageSize
+                let first = (addr / ps) & 0xFF, last = ((count - 1 + addr) / ps) & 0xFF
+                base = first * ps
+                if intf == .atmISP {
+                    offset = addr
+                    read = readTargetFlash(0, targetFlashSize)
+                } else {
+                    offset = addr - base
+                    read = readTargetFlash(base, ((last - first + 1) & 0xFF) * ps)
+                }
+                good = read != nil
+                if intf.brand == 1 { good = erasePages(first, last) }
+            } else if memType == 1 {
+                let es = targetEEpromSize
+                let first = (addr / es) & 0xFF, last = ((count - 1 + addr) / es) & 0xFF
+                base = first * es
+                offset = addr - base
+                read = readTargetEEprom(base, ((last - first + 1) & 0xFF) * es)
+                good = read != nil
+            }
+            addr = base
+            guard good, var buf = read else { ok = nil; return }   // Abort
+            for (k, b) in bytes.enumerated() where offset + k < buf.count { buf[offset + k] = b }
+            data = buf
+        }
+        if memType == 0 {
+            // ISP writes the image from address 0 (as in the original, also without "persist")
+            ok = writeTargetFlash(data, intf == .atmISP ? 0 : addr)
+        } else if memType == 1 {
+            ok = writeTargetEEprom(data, addr)
         }
     }
 
-    /// actDeviceErasePageExecute (0x65E434): page of the start address.
+    /// actDeviceErasePageExecute (0x65E434): page of the "write" start address.
     @objc func actDeviceErasePageExecute(_ sender: TObject) {
-        guard connectForExpertTool(), let p = programmer, let dev = targetDevice else { return }
-        let page = readStart / dev.pageSize
-        guard MsgDlg.show(DFormat(NL("Erase flash page %d (0x%X…0x%X) of %s?"), [page, page * dev.pageSize, (page + 1) * dev.pageSize - 1, escText]),
-                          .mtConfirmation, [.mbYes, .mbNo]) == mrYes else { return }
-        do { try p.erasePage(address: page * dev.pageSize) } catch { MsgDlg.error(error.localizedDescription) }
+        guard let a = addressValue(edtSetStartAddress.text, &expertMem.setStartPrefix) else { return }
+        let ps = targetPageSize
+        let page = (a / ps) & 0xFF
+        let start = ps * page
+        guard MsgDlg.show(DFormat(NL("Erase Page %d?\\n(Start address: 0x%x)"), [page, start]), .mtConfirmation, [.mbYes, .mbNo]) == mrYes else { return }
+        Screen.busy = true
+        defer { Screen.busy = false }
+        selectESC(masterESC, load: true)
+        if connectForExpertTool(), escConnected, let p = programmer, intf.brand == 1 {
+            try? p.erasePage(address: start)
+        }
     }
 
     /// actDeviceEraseMultiplePagesExecute (0x65E3D8).
     @objc func actDeviceEraseMultiplePagesExecute(_ sender: TObject) {
-        guard connectForExpertTool(), let p = programmer, let dev = targetDevice else { return }
-        let f = TfrmErasePageDlg(resource: "TFRMERASEPAGEDLG", owner: self)
-        defer { f.release() }
-        f.prepare(pageSize: dev.pageSize, pages: dev.userFlashSize / dev.pageSize)
-        guard f.showModal() == mrOk else { return }
-        Screen.busy = true
-        defer { Screen.busy = false }
-        do {
-            for page in f.speFirstPage.intValue...max(f.speFirstPage.intValue, f.speLastPage.intValue) {
-                try p.erasePage(address: page * dev.pageSize)
-            }
-        } catch {
-            MsgDlg.error(error.localizedDescription)
-        }
+        var first = 0, last = 0
+        guard connectForExpertTool(), escConnected, TfrmErasePageDlg.execute(&first, &last) else { return }   // FUN_0065ACF0
+        erasePages(first, last)
     }
 
     /// actEraseChipExecute (0x67CB5C).
     @objc func actEraseChipExecute(_ sender: TObject) {
         selectESC(masterESC, load: true)
-        guard MsgDlg.show(DFormat(NL("Erase the complete flash memory of %s?"), [escText]), .mtWarning, [.mbYes, .mbNo]) == mrYes else { return }
-        guard connectForExpertTool(), let p = programmer else { return }
-        Screen.busy = true
-        defer { Screen.busy = false }
-        do {
-            try p.eraseChip()
-            setStatus(escText + NL(" erased"))
-        } catch {
-            MsgDlg.error(error.localizedDescription)
+        guard MsgDlg.show(DFormat(NL("Erase the whole memory of the %s chip?"), [escText]), .mtWarning, [.mbYes, .mbNo]) == mrYes else { return }
+        if eraseChip() {
+            MsgDlg.show(NL("Chip erased successfully."), .mtInformation, [.mbOK])
+        } else {
+            MsgDlg.error(NL("Chip erase failed."))
         }
+    }
+
+    /// FUN_00665158: erases the whole target memory.
+    func eraseChip() -> Bool {
+        TfrmLogForm.addNavy2(NL("Erase chip"))
+        TfrmLogForm.indent(1)
+        var ok = false
+        if connectInterface(true) && connectESC(true), let p = programmer {
+            Screen.busy = true
+            ok = (try? p.eraseChip()) != nil
+            Screen.busy = false
+        }
+        TfrmLogForm.indent(-1)
+        TfrmLogForm.result(ok)
+        return ok
     }
 
     /// actFlashAnyFileExecute (0x67B48C): any hex/eep file, no BLHeli checks.
@@ -270,21 +403,24 @@ extension TfrmBLHeliSuiteMain {
 
     // MARK: - file viewers
 
+    /// actShowHexFileExecute (0x67C660)
     @objc func actShowHexFileExecute(_ sender: TObject) {
-        guard let url = OpenDialog.execute(filter: "Hex file (*.hex;*.eep)|*.hex;*.eep", initialDir: AppFolders.hexFolder) else { return }
-        AppFolders.hexFolder = url.deletingLastPathComponent()
+        guard let url = OpenDialog.execute(filter: "Hex file (*.hex;*.eep)|*.hex;*.eep", initialDir: AppFolders.folder(0)) else { return }
+        AppFolders.setFolder(0, url.deletingLastPathComponent())
         do {
-            TfrmMemoView.show(try MemoryImage.loadIntelHex(url: url), title: url.lastPathComponent, fileName: url)
+            let img = try MemoryImage.loadIntelHex(url: url)                         // FUN_005564C4
+            TfrmMemoView.execute(start: 0, mem: img.read(0, (img.highestAddress ?? -1) + 1), leftCaption: url.path)
         } catch {
             MsgDlg.error(error.localizedDescription)
         }
     }
 
+    /// actShowBinaryFileExecute (0x660F08)
     @objc func actShowBinaryFileExecute(_ sender: TObject) {
-        guard let url = OpenDialog.execute(filter: "Binary file (*.bin or *.*)|*.bin;*.*", initialDir: AppFolders.hexFolder),
-              let d = try? Data(contentsOf: url) else { return }
-        AppFolders.hexFolder = url.deletingLastPathComponent()
-        TfrmMemoView.show(MemoryImage(contiguous: [UInt8](d)), title: url.lastPathComponent, fileName: url)
+        guard let url = OpenDialog.execute(filter: "Binary file (*.bin or *.*)|*.bin;*.*", initialDir: AppFolders.folder(0)),
+              let d = try? Data(contentsOf: url) else { return }                     // FUN_005563E8
+        AppFolders.setFolder(0, url.deletingLastPathComponent())
+        TfrmMemoView.execute(start: 0, mem: [UInt8](d), leftCaption: url.path)
     }
 
     /// actIdentifyFlashMemoryExecute (0x661220).
@@ -332,7 +468,7 @@ extension TfrmBLHeliSuiteMain {
     /// actReadSetupFromHexFileExecute (0x65FE14): setup block of a flash (SiLabs) or EEPROM (Atmel) hex file.
     @objc func actReadSetupFromHexFileExecute(_ sender: TObject) {
         let filter = Brand.current == 2 ? "EEprom file (*.eep;*.hex)|*.eep;*.hex" : "Hex file (*.hex)|*.hex"
-        guard let url = OpenDialog.execute(filter: filter, initialDir: AppFolders.hexFolder),
+        guard let url = OpenDialog.execute(title: NL("Read default parameters from HEX"), filter: filter, initialDir: AppFolders.hexFolder),
               let img = try? MemoryImage.loadIntelHex(url: url) else { return }
         AppFolders.hexFolder = url.deletingLastPathComponent()
         let addr = (Brand.current == 1 && url.pathExtension.lowercased() != "eep") ? BLHeliSettings.silabsAddress : 0
@@ -399,14 +535,27 @@ extension TfrmBLHeliSuiteMain {
     }
 }
 
-/// Fields of the expert page and of the AVRDude combo (+0x880… in the original).
-private var addressUpdatingKey = 0
+/// Fields of the "Expert" page (+0x880 … +0x8B8 of TfrmBLHeliSuiteMain).
+final class ExpertMemState {
+    var length = 0            // +0x880
+    var start = 0             // +0x884
+    var stop = 0              // +0x888
+    var updating = false      // +0x8A0
+    var lengthPrefix = ""     // +0x8A4
+    var startPrefix = ""      // +0x8A8
+    var stopPrefix = ""       // +0x8AC
+    var setStartPrefix = ""   // +0x8B8
+}
+
+private var expertMemKey = 0
 private var progsWidthKey = 0
 
 extension TfrmBLHeliSuiteMain {
-    var addressUpdating: Bool {
-        get { (objc_getAssociatedObject(self, &addressUpdatingKey) as? Bool) ?? false }
-        set { objc_setAssociatedObject(self, &addressUpdatingKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+    var expertMem: ExpertMemState {
+        if let m = objc_getAssociatedObject(self, &expertMemKey) as? ExpertMemState { return m }
+        let m = ExpertMemState()
+        objc_setAssociatedObject(self, &expertMemKey, m, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        return m
     }
     var avrdudeProgsWidth: Int {
         get { (objc_getAssociatedObject(self, &progsWidthKey) as? Int) ?? 0 }

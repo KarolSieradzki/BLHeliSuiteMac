@@ -59,7 +59,7 @@ enum DevTools {
             // set=<control>:<value> – scroll bar / track bar position, edit text or check box state (topmost form, frames included)
             let a = kv[1].split(separator: ":", maxSplits: 1).map(String.init)
             let f = ((NSApp.modalWindow ?? NSApp.keyWindow)?.delegate as? TForm) ?? m
-            guard a.count == 2, let c: TControl = f.component(a[0]) ?? DevTools.find(a[0], in: f) else { break }
+            guard a.count == 2, let c: TControl = f.component(a[0]) ?? DevTools.find(a[0], in: f) ?? m.component(a[0]) ?? DevTools.find(a[0], in: m) else { break }
             if let sb = c as? TScrollBar { sb.position = Int(a[1]) ?? sb.position }
             else if let tb = c as? TTrackBar { tb.position = Int(a[1]) ?? tb.position }
             else if let cb = c as? TCheckBox { cb.checked = a[1] == "1"; cb.onClick?(cb) }
