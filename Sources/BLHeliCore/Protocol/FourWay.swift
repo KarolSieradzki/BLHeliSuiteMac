@@ -239,6 +239,11 @@ public final class FourWayClient {
         try send(.deviceReset, params: [UInt8(esc)], timeout: 2.0)
     }
 
+    /// cmd_DeviceC2CK_LOW: holds the C2 target in reset (C2CK low).
+    public func deviceC2CKLow(esc: Int) throws {
+        try send(.deviceC2CKLow, params: [UInt8(esc)], timeout: 2.0)
+    }
+
     public func initFlash(esc: Int) throws -> [UInt8] {
         let r = try send(.deviceInitFlash, params: [UInt8(esc)], timeout: 3.0)
         return r.params

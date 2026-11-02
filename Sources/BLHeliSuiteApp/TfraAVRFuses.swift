@@ -658,7 +658,7 @@ final class TAVRFuses {
     }
 
     @objc func bntSaveScreenshotClick(_ sender: TObject) {
-        if let f = window?.delegate as? TForm { saveScreenshot(of: f, prefix: "BLHeliSuiteFuses") }
+        if let f = window?.delegate as? TForm { saveScreenshot(of: f, name: "BLHeliSuiteFuseEditor") }
     }
 
     /// Connects avrdude and reads the fuses of the chip (TAVRDude 0x622948 / 0x6223E0 / 0x623DA4).

@@ -92,6 +92,16 @@ enum DevTools {
                                            critical: a.count > 1) {
                 FileHandle.standardError.write(String(format: "[script] fuses result 0x%08X\n", v).data(using: .utf8)!)
             }
+        case "saveini":
+            // saveini=<file>[:escNo] – TBLHeli.SaveToIni of the workspace (escNo 0) or of ESC n, without dialog
+            let a = kv[1].split(separator: ":").map(String.init)
+            let n = a.count > 1 ? Int(a[1]) ?? 0 : 0
+            (n == 0 ? m.workspace : m.blheli[n]).saveToIni(URL(fileURLWithPath: a[0]), escNo: n, m.db)
+        case "loadini":
+            // loadini=<file> – TBLHeli.LoadFromIni into the workspace (section ESC0), like "Read Setup from ini"
+            var found = false
+            if m.workspace.loadFromIni(URL(fileURLWithPath: kv[1]), escNo: 0, m.db, found: &found) { m.showESCData() }
+            FileHandle.standardError.write("[script] loadini found=\(found)\n".data(using: .utf8)!)
         case "quit":
             exit(0)
         default: break

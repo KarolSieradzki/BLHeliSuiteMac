@@ -17,24 +17,47 @@ enum MsgDlg {
             b.hint = NL("Save screenshot and dialog text to file...")
             b.showHint = true
             b.root = f
-            b.onClick = { _ in saveScreenshot(of: f, prefix: "BLHeliSuite_Message", text: msg) }
+            b.onClick = { _ in saveScreenshot(of: f, name: MsgDlg.screenshotName(msg), text: msg) }
             f.addSubview(b)
         }
     }
 
     /// FUN_00554A10: error message.
     static func error(_ msg: String) { show(msg, .mtError, [.mbOK]) }
+
+    /// Screenshot name of a message (0x553F14): text without line breaks and characters not allowed in file
+    /// names (FUN_00555458, set at 0x68CB68, dots removed), without spaces and "-", first 30 characters.
+    static func screenshotName(_ msg: String) -> String {
+        let excluded = Set("\n\r\"()*+,/:;<=>?[\\]^|.")
+        let s = msg.filter { !excluded.contains($0) && $0 != " " && $0 != "-" }
+        return String(s.prefix(30))
+    }
 }
 
-/// FUN_00553FF0: saves a PNG of the form (and the dialog text) into the Screenshots folder.
-func saveScreenshot(of f: TForm, prefix: String, text: String? = nil) {
-    let df = DateFormatter()
-    df.dateFormat = "yyyyMMdd_HHmmss"
-    let name = prefix.replacingOccurrences(of: " ", with: "") + "_" + df.string(from: Date())
-    guard let url = SaveDialog.execute(title: "Save Screenshot", fileName: name + ".png", filter: "PNG (*.png)|*.png",
-                                       initialDir: AppFolders.userFolder.appendingPathComponent("Screenshots")) else { return }
-    try? FileManager.default.createDirectory(at: url.deletingLastPathComponent(), withIntermediateDirectories: true)
-    if let png = f.screenshotPNG() { try? png.write(to: url) }
+/// Last folder of the screenshot dialog (DAT_00698E0C).
+var lastScreenshotFolder: URL?
+
+/// port_saveScreenshot (0x553FF0): the window is copied to the clipboard, then the save dialog offers
+/// "<name>_YYMMDD_<n>.png" (n = first free number 1…9); with a dialog text a .txt file is written next to the picture.
+func saveScreenshot(of f: TForm, name: String, text: String? = nil) {
+    guard let png = f.screenshotPNG() else { return }
+    NSPasteboard.general.clearContents()                       // Clipboard.Assign(Bitmap)
+    if let img = NSImage(data: png) { NSPasteboard.general.writeObjects([img]) }
+    let dir = lastScreenshotFolder ?? AppFolders.userFolder.appendingPathComponent("Screenshots")
+    try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+    let c = Calendar(identifier: .gregorian).dateComponents([.year, .month, .day], from: Date())
+    let base = name + "_" + String(format: "%02d%02d%02d", (c.year ?? 2000) - 2000, c.month ?? 1, c.day ?? 1) + "_"
+    var file = base + "1"
+    for n in 1...9 {
+        file = base + String(n)
+        if !FileManager.default.fileExists(atPath: dir.appendingPathComponent(file + ".png").path) { break }
+    }
+    let title = text == nil ? NL("Save screenshot to file...") : NL("Save screenshot and dialog text to file...")
+    guard let url = SaveDialog.execute(title: title, fileName: file + ".png", filter: "Portable Network Graphic (*.png)|*.png",
+                                       initialDir: dir) else { return }
+    lastScreenshotFolder = url.deletingLastPathComponent()
+    guard url.lastPathComponent.count > 4 else { return }
+    if url.pathExtension.uppercased() == "PNG" { try? png.write(to: url) }
     if let t = text { try? t.write(to: url.deletingPathExtension().appendingPathExtension("txt"), atomically: true, encoding: .utf8) }
 }
 
@@ -221,7 +244,7 @@ func saveScreenshot(of f: TForm, prefix: String, text: String? = nil) {
     @objc func actLevel3Execute(_ sender: TObject) { TfrmLogForm.level = 3 }
     @objc func actLevel4Execute(_ sender: TObject) { TfrmLogForm.level = 4 }
     @objc func actClearExecute(_ sender: TObject) { trvLog.clear(); TfrmLogForm.stack = [nil] }
-    @objc func actSaveScreenshotExecute(_ sender: TObject) { saveScreenshot(of: self, prefix: "BLHeliSuiteLogWindow") }
+    @objc func actSaveScreenshotExecute(_ sender: TObject) { saveScreenshot(of: self, name: "BLHeliSuiteLogWindow") }
 
     @objc func actSaveToFileExecute(_ sender: TObject) {
         guard let url = SaveDialog.execute(fileName: "BLHeliSuite.log", filter: "Log file (*.log)|*.log") else { return }

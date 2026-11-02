@@ -244,5 +244,5 @@ extension TfraAlternateSpeedTest {
 
     @objc func FormClose(_ sender: TObject, _ a: TCloseArgs) { fraAlternateSpeedTest1.stop() }
 
-    @objc func fraAlternateSpeedTest1Button1Click(_ sender: TObject) { saveScreenshot(of: self, prefix: "BLHeliSuiteAlternateSpeedTest") }
+    @objc func fraAlternateSpeedTest1Button1Click(_ sender: TObject) { saveScreenshot(of: self, name: "AlternateSpeedTest") }
 }

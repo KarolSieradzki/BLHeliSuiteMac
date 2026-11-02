@@ -249,8 +249,17 @@ import BLHeliCore
         fillESCList(); fillRevisions(); fillList()
     }
 
+    /// actIgnoreInappropriateMCUExecute (0x6557F8): all lists rebuilt, the detected ESC / mode / revision kept.
     @objc func actIgnoreInappropriateMCUExecute(_ sender: TObject) {
-        fillESCList(); fillRevisions(); fillList()
+        fillModes()                                                     // FUN_0065651C
+        cbbSelectESCMode.itemIndex = currentMode + 1
+        fillESCList()                                                   // FUN_006568EC
+        if let i = cbbSelectESC.items.firstIndex(of: currentLayout) ?? cbbSelectESC.items.firstIndex(of: currentLayoutDisplay) {
+            cbbSelectESC.itemIndex = i
+        }
+        fillRevisions()                                                 // FUN_006565CC
+        cbbSelectBLHeliRevision.itemIndex = cbbSelectBLHeliRevision.items.firstIndex(of: currentRev) ?? 1
+        fillList()                                                      // FUN_00655F68
     }
 
     @objc func btnOKClick(_ sender: TObject) {
@@ -267,8 +276,16 @@ import BLHeliCore
         modalResult = mrNone
     }
 
-    @objc func btnScreenShotClick(_ sender: TObject) { saveScreenshot(of: self, prefix: "FlashAssistant") }
-    @objc func cbbSelectESCCloseUp(_ sender: TObject) { fillRevisions(); fillList() }
+    @objc func btnScreenShotClick(_ sender: TObject) { saveScreenshot(of: self, name: "FlashAssistant") }
+    /// cbbSelectESCCloseUp (0x655B08): if the list stays empty, the revision moves down, then up, then to "Latest".
+    @objc func cbbSelectESCCloseUp(_ sender: TObject) {
+        fillRevisions()
+        fillList()
+        let r = cbbSelectBLHeliRevision!
+        while lbBuildInHexFiles.items.isEmpty && r.itemIndex > 2 { r.itemIndex -= 1; fillList() }
+        while lbBuildInHexFiles.items.isEmpty && r.itemIndex < r.items.count - 3 { r.itemIndex += 1; fillList() }
+        if lbBuildInHexFiles.items.isEmpty { r.itemIndex = 1; fillList() }
+    }
     @objc func cbbSelectESCModeChange(_ sender: TObject) { fillList() }
     @objc func cbbSelectESCModeCloseUp(_ sender: TObject) { fillList() }
     @objc func cbbSelectBLHeliRevisionChange(_ sender: TObject) { fillList() }

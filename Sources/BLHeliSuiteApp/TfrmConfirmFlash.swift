@@ -163,12 +163,25 @@ import BLHeliCore
         let text = [lblWarningTitle.visible ? lblWarningTitle.caption : "", lbSevereWarning.visible ? lbSevereWarning.caption : "",
                     lblWarning.visible ? lblWarning.caption : "", lblInfo.caption, lblFlashTo.caption, lblFlashTo2.caption]
             .filter { !$0.isEmpty }.joined(separator: "\r\n")
-        saveScreenshot(of: self, prefix: "BLHeliSuiteConfirmFlashDlg", text: text)
+        saveScreenshot(of: self, name: "BLHeliSuiteConfirmFlashDlg", text: text)
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(text, forType: .string)
     }
+    /// edtfuseKeyPress (0x62D36C): at most two hex digits; with the second digit the fuse byte is taken over.
     @objc func edtfuseKeyPress(_ sender: TObject, _ a: TKeyArgs) {
-        if !(a.key.isHexDigit || a.key == "\u{8}") { a.key = "\0" }
+        guard let e = sender as? TEdit, [edt_lfuse, edt_hfuse, edt_efuse].contains(where: { $0 === e }) else { return }
+        let c = a.key
+        guard c == "\u{8}" || c == "\r" || c.isHexDigit else { a.key = "\0"; return }
+        guard c.isHexDigit else { return }
+        let t = e.textValue
+        if t.count == 1 {
+            e.textValue = t + String(c)
+            a.key = "\0"
+        } else if t.count == 2 {
+            a.key = "\0"
+        }
+        guard e.textValue.count == 2, UInt8(e.textValue, radix: 16) != nil else { return }
+        showFuses(shownFuses)
     }
     /// Fuses shown in the dialog.
     var shownFuses: AVRFuses {

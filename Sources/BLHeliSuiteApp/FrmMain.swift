@@ -1086,7 +1086,7 @@ final class ESCSlot {
     }
 
     @objc func actScreenshotExecute(_ sender: TObject) {
-        saveScreenshot(of: self, prefix: "BLHeliSuite" + (pgcMain.activePage?.caption ?? ""))
+        saveScreenshot(of: self, name: "BLHeliSuite" + (pgcMain.activePage?.caption ?? ""))
     }
 
     @objc func actSelectValBackColorExecute(_ sender: TObject) {

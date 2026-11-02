@@ -104,7 +104,7 @@ extension TfraSelectIspParams {
     }
 
     @objc func SaveScreeshot1Click(_ sender: TObject) {
-        if let f = window?.delegate as? TForm { saveScreenshot(of: f, prefix: "BLHeliSuiteSelectISPParams") }
+        if let f = window?.delegate as? TForm { saveScreenshot(of: f, name: "ESCSetup") }
     }
 }
 
@@ -120,5 +120,5 @@ extension TfraSelectIspParams {
         return showModal() == mrOk
     }
 
-    @objc func mniSaveSvreenshotClick(_ sender: TObject) { saveScreenshot(of: self, prefix: "BLHeliSuiteSelectISPParams") }
+    @objc func mniSaveSvreenshotClick(_ sender: TObject) { saveScreenshot(of: self, name: "SelectIspParameters") }
 }

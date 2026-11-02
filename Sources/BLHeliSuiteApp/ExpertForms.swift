@@ -90,7 +90,7 @@ import BLHeliCore
         try? image.intelHex().write(to: url, atomically: true, encoding: .ascii)
     }
 
-    @objc func actTakeScreenshotExecute(_ sender: TObject) { saveScreenshot(of: self, prefix: "BLHeliSuiteMemoView") }
+    @objc func actTakeScreenshotExecute(_ sender: TObject) { saveScreenshot(of: self, name: "MemoryView") }
 
     /// sgdMemoDrawCell: erased bytes (FF) in grey.
     @objc func sgdMemoDrawCell(_ sender: TObject, _ a: TDrawCellArgs) {
@@ -169,5 +169,5 @@ import BLHeliCore
         f.release()
     }
 
-    @objc func Button1Click(_ sender: TObject) { saveScreenshot(of: self, prefix: "BLHeliSuiteCompareResults") }
+    @objc func Button1Click(_ sender: TObject) { saveScreenshot(of: self, name: "CompareResults") }
 }

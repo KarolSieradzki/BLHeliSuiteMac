@@ -51,10 +51,24 @@ extension TfrmBLHeliSuiteMain {
     }
 
     /// edtAdressKeyPress (0x664C2C): digits, hex letters, "x", "$", backspace and return.
+    /// edtAdressKeyPress (0x664C2C): decimal numbers, hex after a leading "$" or "0x" (letters upper case).
     @objc func edtAdressKeyPress(_ sender: TObject, _ args: TKeyArgs) {
         let c = args.key
-        if c == "\u{8}" || c == "\r" || c.isHexDigit || c == "x" || c == "X" || c == "$" { return }
-        args.key = "\0"
+        guard c != "\u{8}", c != "\r", let e = sender as? TEdit else { return }
+        let s = Array(e.text)
+        func hexDigit() {
+            if c.isNumber && c.isASCII { return }
+            if c.isHexDigit { args.key = Character(c.uppercased()) } else { args.key = "\0" }
+        }
+        if !s.isEmpty && s[0] == "$" {
+            hexDigit()
+        } else if s.count > 1 && s[0] == "0" && (s[1] == "x" || s[1] == "X") {
+            hexDigit()
+        } else if c == "$" {
+            args.key = s.isEmpty ? "$" : "\0"
+        } else if !(c.isNumber && c.isASCII) {
+            args.key = (c == "x" || c == "X") && s.count == 1 && s[0] == "0" ? "x" : "\0"
+        }
     }
 
     /// edtSetMemKeyPress (0x664DC4): hex digits (upper case), separators.
@@ -313,55 +327,7 @@ extension TfrmBLHeliSuiteMain {
 
     // MARK: - setup files
 
-    @objc func actSaveSetupToIniFileExecute(_ sender: TObject) {
-        guard workspace.isValid else { return }
-        let name = (workspace.name.isEmpty ? "BLHeliSetup" : workspace.name).replacingOccurrences(of: "/", with: "_") + ".ini"
-        guard let url = SaveDialog.execute(fileName: name, filter: "Setup file (*.ini)|*.ini", initialDir: AppFolders.userFolder.appendingPathComponent("Settings")) else { return }
-        do { try SetupFile.write(workspace.settings, to: url) } catch { MsgDlg.error(error.localizedDescription) }
-    }
-
-    @objc func actReadSetupFromIniFileExecute(_ sender: TObject) {
-        guard let url = OpenDialog.execute(filter: "Setup file (*.ini)|*.ini", initialDir: AppFolders.userFolder.appendingPathComponent("Settings")) else { return }
-        var s = workspace.isValid ? workspace.settings : current.settings
-        do {
-            let sec = try SetupFile.sections(url: url).first
-            if try SetupFile.apply(url: url, to: &s, database: db, section: sec) == 0 { MsgDlg.error(NL("Invalid Package")); return }
-        } catch {
-            MsgDlg.error(error.localizedDescription)
-            return
-        }
-        if !intfConnected { current.assign(to: workspace) }
-        workspace.settings = s
-        if workspace.count == 0 { workspace.count = BLHeliSettings.size }
-        showESCData()
-    }
-
-    @objc func actSaveMultipleESCSetupToIniFileExecute(_ sender: TObject) {
-        let list = (1...8).filter { blheli[$0].isValid }.map { ($0, blheli[$0].settings) }
-        guard !list.isEmpty,
-              let url = SaveDialog.execute(fileName: "MultipleESC.ini", filter: "Setup file (*.ini)|*.ini",
-                                           initialDir: AppFolders.userFolder.appendingPathComponent("Settings")) else { return }
-        do { try SetupFile.write(multiple: list, to: url) } catch { MsgDlg.error(error.localizedDescription) }
-    }
-
-    @objc func actReadMultipleESCSetupFromIniFileExecute(_ sender: TObject) {
-        guard let url = OpenDialog.execute(filter: "Setup file (*.ini)|*.ini", initialDir: AppFolders.userFolder.appendingPathComponent("Settings")),
-              let sections = try? SetupFile.sections(url: url) else { return }
-        var applied = 0
-        for sec in sections {
-            guard sec.hasPrefix("ESC#"), let n = Int(sec.dropFirst(4)), (1...8).contains(n), blheli[n].isValid else { continue }
-            var s = blheli[n].settings
-            let cnt = (try? SetupFile.apply(url: url, to: &s, database: db, section: sec)) ?? 0
-            if cnt > 0 {
-                blheli[n].settings = s
-                applied += 1
-            }
-        }
-        if applied == 0 { MsgDlg.error(NL("Invalid Package")); return }
-        current.assign(to: workspace)
-        updateESCButtons()
-        showESCData()
-    }
+    // actSave/ReadSetupTo/FromIniFile, actSave/ReadMultipleESCSetup…: SetupFiles.swift
 
     /// actReadSetupFromHexFileExecute (0x65FE14): setup block of a flash (SiLabs) or EEPROM (Atmel) hex file.
     @objc func actReadSetupFromHexFileExecute(_ sender: TObject) {

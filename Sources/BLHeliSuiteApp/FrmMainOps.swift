@@ -593,10 +593,30 @@ extension TfrmBLHeliSuiteMain {
         updateCaption()
     }
 
-    @objc func actTargetRestartExecute(_ sender: TObject) { actRestartESCExecute(sender) }
+    /// actTargetRestartExecute (0x67C99C → FUN_006743E4): C2 targets only – Toolstick: SetTargetGo,
+    /// 4way-if in C2 mode: cmd_DeviceReset of the current ESC.
+    @objc func actTargetRestartExecute(_ sender: TObject) {
+        switch intf {
+        case .silC2Toolstick:
+            try? toolstick.programmer?.resetESC(0)
+        case .silC2_4wif:
+            if let fw = serialIntf?.programmer as? FourWayProgrammer { try? fw.client.deviceReset(esc: escNo - 1) }
+        default:
+            break
+        }
+    }
 
+    /// actTargetKeepResetExecute (0x67C8E8 → FUN_00672858): master ESC selected, interface reconnected and the
+    /// C2 target held in reset (cmd_DeviceC2CK_LOW, 4way-if only).
     @objc func actTargetKeepResetExecute(_ sender: TObject) {
-        TfrmLogForm.addNavy2("Expert: keep reset target")
+        selectESC(masterESC, load: true)
+        disconnectAll()
+        guard connectInterface(true) else { return }
+        if intf == .silC2Toolstick {
+            MsgDlg.show(NL("cmd_DeviceC2CK_LOW not available in Toolstick mode"), .mtInformation, [.mbOK])
+        } else if intf == .silC2_4wif, let fw = serialIntf?.programmer as? FourWayProgrammer {
+            try? fw.client.deviceC2CKLow(esc: escNo - 1)
+        }
     }
 
     // MARK: - Flash (actFlashBLHeliExecute 0x66111C, actFlashOtherExecute 0x661150)
