@@ -163,9 +163,15 @@ with every kind of physical programming hardware; reports are welcome.
 
 Known differences from Windows:
 
-* Fonts are the macOS equivalents of Tahoma / Courier New, so text widths differ slightly.
+* The same fonts are used (Tahoma, Courier New and Wingdings ship with macOS), but macOS renders text
+  differently from Windows GDI, so text looks slightly different.
 * *Check for updates* opens the releases page of this port instead of downloading BLHeliSuite updates.
 * There is no Windows help file; F1 does nothing (as in BLHeliSuite without its help file).
+* The ISP part of the flash confirmation dialog (choice of bootloader type and bootloader pin) is still a
+  simplified version of the original; check the fuses shown there before flashing over ISP.
+* Windows components are replaced by native code speaking the same protocols: the ToolStick is driven over
+  IOKit HID instead of `SiUtil.dll` / `USBHID.dll`, Arduino boards are flashed by a built-in STK500 loader
+  (avrdude from Homebrew for ISP and some boards).
 
 ## Credits and legal
 
