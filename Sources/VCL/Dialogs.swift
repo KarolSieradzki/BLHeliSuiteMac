@@ -1,4 +1,5 @@
 import AppKit
+import UniformTypeIdentifiers
 
 /// Dialogs.TMsgDlgType
 public enum TMsgDlgType: Int { case mtWarning = 0, mtError, mtInformation, mtConfirmation, mtCustom }
@@ -185,6 +186,11 @@ public func ShowMessage(_ msg: String) {
 // MARK: - common dialogs
 
 public enum OpenDialog {
+    /// Content types of file extensions in both cases (Windows file names like "…REV14_9.HEX").
+    static func contentTypes(_ exts: [String]) -> [UTType] {
+        Array(Set(exts.flatMap { [$0.lowercased(), $0.uppercased()] })).compactMap { UTType(filenameExtension: $0) }
+    }
+
     /// filter: Delphi filter string "Text|*.ext;*.ext2|…"
     public static func execute(title: String? = nil, filter: String = "", initialDir: URL? = nil) -> URL? {
         let p = NSOpenPanel()
@@ -202,7 +208,7 @@ public enum OpenDialog {
             maskFilter = MaskFilter(masks)
             p.delegate = maskFilter
         } else if !exts.isEmpty && !exts.contains("*") {
-            p.allowedFileTypes = exts
+            p.allowedContentTypes = OpenDialog.contentTypes(exts)
         }
         let r = p.runModal() == .OK ? p.url : nil
         p.delegate = nil
@@ -255,7 +261,10 @@ public enum SaveDialog {
         p.nameFieldStringValue = fileName
         if let d = initialDir { p.directoryURL = d }
         let exts = OpenDialog.extensions(filter).filter { $0 != "*" }
-        if !exts.isEmpty { p.allowedFileTypes = exts; p.allowsOtherFileTypes = true }
+        if !exts.isEmpty {
+            p.allowedContentTypes = OpenDialog.contentTypes(exts)
+            p.allowsOtherFileTypes = true
+        }
         return p.runModal() == .OK ? p.url : nil
     }
 }
