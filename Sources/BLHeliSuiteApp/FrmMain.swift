@@ -373,12 +373,8 @@ final class ESCSlot {
                 Brand.current = brand
                 for a in aclMain.actions {
                     let cap = a.caption
-                    if brand == 1 {
-                        if cap.contains("SILABS") { a.visible = true }
-                        if cap.contains("ATMEL") { a.visible = false }
-                    } else {
-                        if cap.contains("ATMEL") { a.visible = true }
-                        if cap.contains("SILABS") { a.visible = false }
+                    if cap.contains("SILABS") || cap.contains("ATMEL") {
+                        a.visible = true
                     }
                 }
                 workspace.clear(isS: false)
